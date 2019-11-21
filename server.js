@@ -32,7 +32,7 @@ const drinksController = require('./controllers/drinks.js')
 app.use('/', drinksController)
 
 const usersController = require('./controllers/users.js')
-app.use('/', usersController)
+app.use('/users', usersController)
 
 const sessionController = require('./controllers/session.js')
 app.use('/session', sessionController)
