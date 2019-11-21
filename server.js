@@ -28,7 +28,7 @@ app.use(session({
 // app.use('/', drinksController)
 
 const usersController = require('./controllers/users.js')
-app.use('/', usersController)
+app.use('/users', usersController)
 
 // Error/Server Status
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
@@ -39,4 +39,3 @@ db.on('disconnected', () => console.log('mongo disconnected'))
 app.listen(PORT, () => {
     console.log('Sipping on port: ' + PORT)
 })
-
