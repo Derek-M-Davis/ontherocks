@@ -10,7 +10,7 @@ router.post('/', (req, res) => {
                 message: 'User not found'
             })
         } else {
-            const doesPasswordMatch = (req.body.password, foundUser.password)
+            const doesPasswordMatch = bcrypt.compareSync(req.body.password, foundUser.password)
             if(doesPasswordMatch){
                 req.session.user = foundUser
                 res.json(foundUser)
