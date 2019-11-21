@@ -17,6 +17,12 @@ app.use(express.static('public'))
 
 app.use(express.json())
 
+app.use(session({
+    secret:'feedmeseymour',
+    resave:false,
+    saveUninitialized:false
+}))
+
 // Controllers
 // const drinksController = require('./controllers/drinks.js')
 // app.use('/', drinksController)
