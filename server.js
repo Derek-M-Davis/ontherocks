@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express()
 const db = mongoose.connection
+
 const PORT = process.env.PORT || 3000;
 
 require('dotenv').config()
@@ -16,8 +17,11 @@ app.use(express.static('public'))
 app.use(express.json())
 
 // Controllers
-// const drinksController = require('../controllers/drinks.js')
+// const drinksController = require('./controllers/drinks.js')
 // app.use('/', drinksController)
+
+const usersController = require('./controllers/users.js')
+app.use('/', usersController)
 
 // Error/Server Status
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
