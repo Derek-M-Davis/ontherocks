@@ -46,4 +46,3 @@ db.on('disconnected', () => console.log('mongo disconnected'))
 app.listen(PORT, () => {
     console.log('Sipping on port: ' + PORT)
 })
-
