@@ -28,8 +28,8 @@ app.use(session({
 }))
 
 // ============== Controllers ================== //
-const drinksController = require('./controllers/drinks.js')
-app.use('/', drinksController)
+const savedController = require('./controllers/saved.js')
+app.use('/saved', savedController)
 
 const usersController = require('./controllers/users.js')
 app.use('/users', usersController)
