@@ -2,6 +2,52 @@ const app = angular.module('onTheRocksApp', [])
 
 app.controller('MainController', ['$http', function($http){
 
+    this.showWhiskey = null;
+    this.showTequila = null;
+    this.showRum = null;
+    this.showGin = null;
+    this.showVodka = null;
+
+    this.toggleWhiskey = () => {
+        this.showWhiskey = true;
+        this.showTequila = null;
+        this.showRum = null;
+        this.showGin = null;
+        this.showVodka = null;
+    }
+
+    this.toggleTequila = () => {
+        this.showWhiskey = null;
+        this.showTequila = true;
+        this.showRum = null;
+        this.showGin = null;
+        this.showVodka = null;
+    }
+
+    this.toggleRum = () => {
+        this.showWhiskey = null;
+        this.showTequila = null;
+        this.showRum = true;
+        this.showGin = null;
+        this.showVodka = null;
+    }
+
+    this.toggleGin = () => {
+        this.showWhiskey = null;
+        this.showTequila = null;
+        this.showRum = null;
+        this.showGin = true;
+        this.showVodka = null;
+    }
+
+    this.toggleVodka = () => {
+        this.showWhiskey = null;
+        this.showTequila = null;
+        this.showRum = null;
+        this.showGin = null;
+        this.showVodka = true;
+    }
+
     this.getDrinkByName = (drink) => {
         $http({
             method:'GET',
