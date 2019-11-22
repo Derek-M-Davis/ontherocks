@@ -11,4 +11,7 @@
         Password: <input type="password" ng-model="ctrl.loginPassword" /><br>
         <input type="submit" value="Log In">
     </form>
+    <div ng-if="ctrl.loggedInUser !== false">
+        <button ng-click="ctrl.logout()">Log Out</button>
+    </div>
 </div>
