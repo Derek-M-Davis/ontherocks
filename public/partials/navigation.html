@@ -1,0 +1,9 @@
+<nav style="display:flex; justify-content:space-evenly;">
+  <a href="#">Home</a>
+  <a href="#" ng-if="ctrl.loggedInUser !== false">Your Drinks</a>
+  <a href="#" ng-if="ctrl.loggedInUser === false" ng-click="ctrl.logInModal = true">Log In</a>
+  <a href="#" ng-if="ctrl.loggedInUser === false" ng-click="ctrl.signUpModal = true">Sign Up</a>
+  <a href="#" ng-if="ctrl.loggedInUser !== false" ng-click="ctrl.logout()">Log Out</a>
+</nav>
+
+<!-- class="navbar sticky-top navbar-expand-lg nav-pills justify-content-start container-fluid" -->
