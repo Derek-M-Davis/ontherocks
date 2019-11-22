@@ -1,25 +1,37 @@
-<ul>
+
+<button ng-click="ctrl.toggleWhiskey()">Whiskey</button>
+<button ng-click="ctrl.toggleTequila()">Tequila</button>
+<button ng-click="ctrl.toggleRum()">Rum</button>
+<button ng-click="ctrl.toggleGin()">Gin</button>
+<button ng-click="ctrl.toggleVodka()">Vodka</button>
+
+<ul ng-if="ctrl.showWhiskey">
     <li ng-repeat="drink in ctrl.allWhiskeyDrinks">
         <h1>{{drink.strDrink}}</h1>
+        <button>Show Drink</button>
     </li>
 </ul>
-<ul>
+<ul ng-if="ctrl.showTequila">
     <li ng-repeat="drink in ctrl.allTequilaDrinks">
         <h1>{{drink.strDrink}}</h1>
+        <button>Show Drink</button>
     </li>
 </ul>
-<ul>
+<ul ng-if="ctrl.showRum">
     <li ng-repeat="drink in ctrl.allRumDrinks">
         <h1>{{drink.strDrink}}</h1>
+        <button>Show Drink</button>
     </li>
 </ul>
-<ul>
+<ul ng-if="ctrl.showGin">
     <li ng-repeat="drink in ctrl.allGinDrinks">
         <h1>{{drink.strDrink}}</h1>
+        <button>Show Drink</button>
     </li>
 </ul>
-<ul>
+<ul ng-if="ctrl.showVodka">
     <li ng-repeat="drink in ctrl.allVodkaDrinks">
         <h1>{{drink.strDrink}}</h1>
+        <button>Show Drink</button>
     </li>
 </ul>
