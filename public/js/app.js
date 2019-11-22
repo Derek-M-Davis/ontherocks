@@ -8,6 +8,20 @@ app.controller('MainController', ['$http', function($http){
     this.showGin = null;
     this.showVodka = null;
 
+    this.modal = false // Toggle Modal
+
+    // DRINK MODAL
+    this.showDrink = (drink) => {
+      this.drink = drink
+      this.modal = !this.modal
+    }
+
+    // CLOSE MODAL
+    this.closeModal = () => {
+      this.modal = false
+    }
+
+    // WHISKEY DRINK LIST
     this.toggleWhiskey = () => {
         this.showWhiskey = true;
         this.showTequila = null;
@@ -16,6 +30,7 @@ app.controller('MainController', ['$http', function($http){
         this.showVodka = null;
     }
 
+    // TEQUILA DRINK LIST
     this.toggleTequila = () => {
         this.showWhiskey = null;
         this.showTequila = true;
@@ -24,6 +39,7 @@ app.controller('MainController', ['$http', function($http){
         this.showVodka = null;
     }
 
+    // RUM DRINK LIST
     this.toggleRum = () => {
         this.showWhiskey = null;
         this.showTequila = null;
@@ -32,6 +48,7 @@ app.controller('MainController', ['$http', function($http){
         this.showVodka = null;
     }
 
+    // GIN DRINK LIST
     this.toggleGin = () => {
         this.showWhiskey = null;
         this.showTequila = null;
@@ -40,6 +57,7 @@ app.controller('MainController', ['$http', function($http){
         this.showVodka = null;
     }
 
+    // VODKA DRINK LIST
     this.toggleVodka = () => {
         this.showWhiskey = null;
         this.showTequila = null;
@@ -48,6 +66,8 @@ app.controller('MainController', ['$http', function($http){
         this.showVodka = true;
     }
 
+
+    // SPECIFIC DRINK
     this.getDrinkByName = (drink) => {
         $http({
             method:'GET',
@@ -59,6 +79,7 @@ app.controller('MainController', ['$http', function($http){
         })
     }
 
+    // WHISKEY DRINKS
     this.getAllWhiskeyDrinks = () => {
         $http({
             method:'GET',
@@ -72,6 +93,7 @@ app.controller('MainController', ['$http', function($http){
 
     this.getAllWhiskeyDrinks();
 
+    // TEQUILA DRINKS
     this.getAllTequilaDrinks = () => {
         $http({
             method:'GET',
@@ -86,6 +108,7 @@ app.controller('MainController', ['$http', function($http){
 
     this.getAllTequilaDrinks();
 
+    // RUM DRINKS
     this.getAllRumDrinks = () => {
         $http({
             method:'GET',
@@ -100,6 +123,7 @@ app.controller('MainController', ['$http', function($http){
 
     this.getAllRumDrinks();
 
+    // GIN DRINKS
     this.getAllGinDrinks = () => {
         $http({
             method:'GET',
@@ -114,6 +138,7 @@ app.controller('MainController', ['$http', function($http){
 
     this.getAllGinDrinks();
 
+    // VODKA DRINKS
     this.getAllVodkaDrinks = () => {
         $http({
             method:'GET',
@@ -127,6 +152,7 @@ app.controller('MainController', ['$http', function($http){
     }
 
     this.getAllVodkaDrinks();
+
     //Filter Function once we purchase key
     // this.getListByMultipleIngredients = (ingredients) => {
     //     $http({
@@ -139,51 +165,61 @@ app.controller('MainController', ['$http', function($http){
     //     })
     // }
 
-    const controller = this
-   this.loggedINUser = false
+  const controller = this
+  this.loggedINUser = false
 
-    // Sign up function
-    this.signup = function(){
-       $http({
-            url:'/users',
-            method: 'POST',
-            data: {
-                username: this.signupUsername,
-                password: this.signupPassword
-            }
-        }).then(function(response){
-            controller.loggedInUser = response.data
-        })
-    }
-
-   //  Login function
-    this.login = function(){
+  // SIGN UP FUNCTION
+  this.signup = function(){
      $http({
-         url:'/session',
-         method: 'POST',
-         data:{
-             username: this.loginUsername,
-             password: this.loginPassword
-         }
-     }).then(function(response){
-        if(response.data.username){
-            controller.loggedInUser = response.data
-        } else {
-            controller.loginUsername = null;
-            controller.loginPassword = null;
-        }
-     })
-    }
+          url:'/users',
+          method: 'POST',
+          data: {
+              username: this.signupUsername,
+              password: this.signupPassword
+          }
+      }).then(function(response){
+          controller.loggedInUser = response.data
+      })
+  }
 
-    // Session Cookie
+  // LOGIN FUNCTION
+  this.login = function(){
    $http({
-       method: 'GET',
-       url: '/session'
-   }).then(function(response){
-       if(response.data.username){
-           controller.loggedInUser = response.data
+       url:'/session',
+       method: 'POST',
+       data:{
+           username: this.loginUsername,
+           password: this.loginPassword
        }
+   }).then(function(response){
+      if(response.data.username){
+          controller.loggedInUser = response.data
+      } else {
+          controller.loginUsername = null;
+          controller.loginPassword = null;
+      }
    })
+  }
 
+  // LOG OUT FUNCTION
+  this.logout = function(){
+      $http({
+          url:'/session',
+          method: 'DELETE'
+      }).then(function(){
+          controller.loggedInUser = false
+      })
+   }
 
-}])
+  // SESSION COOKIE
+  $http({
+      method: 'GET',
+      url: '/session'
+  }).then(function(response){
+      if(response.data.username){
+          controller.loggedInUser = response.data
+      }
+  })
+console.log(this.loggedINUser);
+
+}]) // END
