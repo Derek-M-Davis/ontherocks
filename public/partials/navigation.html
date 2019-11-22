@@ -1,7 +1,9 @@
-<nav class="navbar sticky-top navbar-expand-lg nav-pills justify-content-start container-fluid" style="display:flex; justify-content:space-around;">
-  <span><a href="#">Home</a></span>
-  <span><a href="#">Your Drinks</a></span>
-  <span><a href="#">Log In</a></span>
-  <span><a href="#">Log Out</a></span>
-  <span><a href="#">Sign Up</a></span>
+<nav style="display:flex; justify-content:space-evenly;">
+  <a href="#">Home</a>
+  <a href="#" ng-if="ctrl.loggedINUser !== false">Your Drinks</a>
+  <a href="#" ng-if="ctrl.loggedINUser === false">Log In</a>
+  <a href="#" ng-if="ctrl.loggedINUser === false">Sign Up</a>
+  <a href="#" ng-if="ctrl.loggedINUser !== false" ng-click="ctrl.logout()">Log Out</a>
 </nav>
+
+<!-- class="navbar sticky-top navbar-expand-lg nav-pills justify-content-start container-fluid" -->
