@@ -1,17 +1,30 @@
-<div>
-    <h2>Sign Up</h2>
-    <form ng-submit="ctrl.signup()">
-        Username: <input type="text" ng-model="ctrl.signupUsername" /><br>
-        Password: <input type="password" ng-model="ctrl.signupPassword" /><br>
-        <input type="submit" value="Sign Up">
-    </form>
-    <h2>Log In</h2>
-    <form ng-submit="ctrl.login()">
-        Username: <input type="text" ng-model="ctrl.loginUsername"/><br>
-        Password: <input type="password" ng-model="ctrl.loginPassword" /><br>
-        <input type="submit" value="Log In">
-    </form>
-    <div ng-if="ctrl.loggedInUser !== false">
-        <button ng-click="ctrl.logout()">Log Out</button>
+<div id="signupModal" ng-if="ctrl.signUpModal !== false">
+  <div class="signup">
+    <div class="form">
+      <h2>Sign Up</h2>
+      <form ng-submit="ctrl.signup()">
+          Username: <br><input type="text" ng-model="ctrl.signupUsername" /><br>
+          Password: <br><input type="password" ng-model="ctrl.signupPassword" /><br>
+          <div class="button">
+            <input type="submit" value="Sign Up">
+            <button ng-click="ctrl.signUpModal = false">Cancel</button>
+          </div>
+      </form>
     </div>
+  </div>
+</div>
+<div id="loginModal" ng-if="ctrl.logInModal !== false">
+  <div class="login">
+    <div class="form">
+      <h2>Log In</h2>
+      <form ng-submit="ctrl.login()">
+          Username: <br><input type="text" ng-model="ctrl.loginUsername"/><br>
+          Password: <br><input type="password" ng-model="ctrl.loginPassword" /><br>
+          <div class="button">
+            <input type="submit" value="Log In">
+            <button ng-click="ctrl.logInModal = false">Cancel</button>
+          </div>
+      </form>
+    </div>
+  </div>
 </div>
