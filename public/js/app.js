@@ -166,7 +166,7 @@ app.controller('MainController', ['$http', function($http){
     // }
 
   const controller = this
-  this.loggedINUser = false
+  this.loggedInUser = false
 
   // SIGN UP FUNCTION
   this.signup = function(){
