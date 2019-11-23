@@ -233,7 +233,7 @@ app.controller('MainController', ['$http', function($http){
 
     }
 
-    //Filter Function once we purchase key
+    // Filter Function once we purchase key
     // this.getListByMultipleIngredients = (ingredients) => {
     //     $http({
     //         method:'GET',
@@ -259,6 +259,7 @@ app.controller('MainController', ['$http', function($http){
           }
       }).then(function(response){
           controller.loggedInUser = response.data
+          controller.signUpModal = false
       })
   }
 
@@ -278,6 +279,7 @@ app.controller('MainController', ['$http', function($http){
           controller.loginUsername = null;
           controller.loginPassword = null;
       }
+      controller.logInModal = false
    })
   }
 
