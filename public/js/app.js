@@ -73,7 +73,7 @@ app.controller('MainController', ['$http', function($http){
     this.getDrinkByName = (drink) => {
         $http({
             method:'GET',
-            url:'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + drink
+            url:'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=' + drink.idDrink
         }).then(response => {
             console.log(response);
         }, error => {
@@ -153,7 +153,85 @@ app.controller('MainController', ['$http', function($http){
         })
     }
 
+    // SAVED DRINKS
+    this.saveDrink = (drink) => {
+        $http({
+            method:'GET',
+            url:'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=' + this.drink.idDrink
+        }).then(response => {
+            this.savedDrink = response.data.drinks[0];
+            console.log(response.data.drinks[0]);
+            console.log(this.savedDrink);
+            $http({
+                method: 'PATCH',
+                url: '/saved',
+                data:{
+                    strDrink: this.savedDrink.strDrink,
+                    strDrinkThumb: this.savedDrink.strDrinkThumb,
+                    strIngredient1: this.savedDrink.strIngredient1,
+                    strIngredient2: this.savedDrink.strIngredient2,
+                    strIngredient3: this.savedDrink.strIngredient3,
+                    strIngredient4: this.savedDrink.strIngredient4,
+                    strIngredient5: this.savedDrink.strIngredient5,
+                    strIngredient6: this.savedDrink.strIngredient6,
+                    strIngredient7: this.savedDrink.strIngredient7,
+                    strIngredient8: this.savedDrink.strIngredient8,
+                    strIngredient9: this.savedDrink.strIngredient9,
+                    strIngredient10: this.savedDrink.strIngredient10,
+                    strIngredient11: this.savedDrink.strIngredient11,
+                    strIngredient12: this.savedDrink.strIngredient12,
+                    strIngredient13: this.savedDrink.strIngredient13,
+                    strIngredient14: this.savedDrink.strIngredient14,
+                    strIngredient15: this.savedDrink.strIngredient15,
+                    strInstructions: this.savedDrink.strInstructions,
+                    strMeasure1: this.savedDrink.strMeasure1,
+                    strMeasure2: this.savedDrink.strMeasure2,
+                    strMeasure3: this.savedDrink.strMeasure3,
+                    strMeasure4: this.savedDrink.strMeasure4,
+                    strMeasure5: this.savedDrink.strMeasure5,
+                    strMeasure6: this.savedDrink.strMeasure6,
+                    strMeasure7: this.savedDrink.strMeasure7,
+                    strMeasure8: this.savedDrink.strMeasure8,
+                    strMeasure9: this.savedDrink.strMeasure9,
+                    strMeasure10: this.savedDrink.strMeasure10,
+                    strMeasure11: this.savedDrink.strMeasure11,
+                    strMeasure12: this.savedDrink.strMeasure12,
+                    strMeasure13: this.savedDrink.strMeasure13,
+                    strMeasure14: this.savedDrink.strMeasure14,
+                    strMeasure15: this.savedDrink.strMeasure15,
+                    notes: ''
+                }
+            }).then(response => {
+                console.log(response)
+            }, error => {
+                console.log(error)
+            })
+        })
+    }
+
     this.getAllVodkaDrinks();
+
+    // Populate Saved Drinks for user function
+    this.getSavedDrinks = () => {
+        $http({
+            method:'GET',
+            url:'/saved',
+        }).then(response => {
+            this.savedDrinks = response.savedDrinks
+        }, error => {
+            console.log(error);
+        })
+    }
+
+    //Add in drink notes / goes with edit route of saved drinks
+    this.addDrinkNotes = () => {
+
+    }
+
+    // Delete function for saved drinks
+    this.deleteSavedDrink = () => {
+
+    }
 
     //Filter Function once we purchase key
     // this.getListByMultipleIngredients = (ingredients) => {

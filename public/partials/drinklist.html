@@ -13,6 +13,9 @@
     <div ng-if="ctrl.modal === true" id="drinkModal">
       <h1>{{ctrl.drink.strDrink}}</h1>
       <img src="{{ctrl.drink.strDrinkThumb}}" alt="">
+      <form ng-submit="ctrl.saveDrink(drink)">
+        <input ng-if="ctrl.loggedInUser !== false" type="submit" value="Save Drink">
+      </form>
       <button ng-click="ctrl.closeModal()">Close</button>
     </div>
 </ul>
@@ -24,6 +27,9 @@
     <div ng-if="ctrl.modal === true" id="drinkModal">
       <h1>{{ctrl.drink.strDrink}}</h1>
       <img src="{{ctrl.drink.strDrinkThumb}}" alt="">
+      <form ng-submit="ctrl.saveDrink(drink)">
+        <input ng-if="ctrl.loggedInUser !== false" type="submit" value="Save Drink">
+      </form>
       <button ng-click="ctrl.closeModal()">Close</button>
     </div>
 </ul>
@@ -35,6 +41,9 @@
     <div ng-if="ctrl.modal === true" id="drinkModal">
       <h1>{{ctrl.drink.strDrink}}</h1>
       <img src="{{ctrl.drink.strDrinkThumb}}" alt="">
+      <form ng-submit="ctrl.saveDrink(drink)">
+        <input ng-if="ctrl.loggedInUser !== false" type="submit" value="Save Drink">
+      </form>
       <button ng-click="ctrl.closeModal()">Close</button>
     </div>
 </ul>
@@ -46,6 +55,9 @@
     <div ng-if="ctrl.modal === true" id="drinkModal">
       <h1>{{ctrl.drink.strDrink}}</h1>
       <img src="{{ctrl.drink.strDrinkThumb}}" alt="">
+      <form ng-submit="ctrl.saveDrink(drink)">
+        <input ng-if="ctrl.loggedInUser !== false" type="submit" value="Save Drink">
+      </form>
       <button ng-click="ctrl.closeModal()">Close</button>
     </div>
 </ul>
@@ -57,6 +69,9 @@
     <div ng-if="ctrl.modal === true" id="drinkModal">
       <h1>{{ctrl.drink.strDrink}}</h1>
       <img src="{{ctrl.drink.strDrinkThumb}}" alt="">
+      <form ng-submit="ctrl.saveDrink(drink)">
+        <input ng-if="ctrl.loggedInUser !== false" type="submit" value="Save Drink">
+      </form>
       <button ng-click="ctrl.closeModal()">Close</button>
     </div>
 </ul>
