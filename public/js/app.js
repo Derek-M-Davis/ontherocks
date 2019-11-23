@@ -16,7 +16,14 @@ app.controller('MainController', ['$http', function($http){
     this.showDrink = (drink) => {
       this.drink = drink
       this.modal = !this.modal
-    }
+        $http({
+            method:'GET',
+            url:'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=' + this.drink.idDrink
+        }).then(response => {
+            this.drink = response.data.drinks[0];
+            console.log(this.drink);
+    })}
+    
 
     // CLOSE MODAL
     this.closeModal = () => {
@@ -233,7 +240,7 @@ app.controller('MainController', ['$http', function($http){
 
     }
 
-    //Filter Function once we purchase key
+    // Filter Function once we purchase key
     // this.getListByMultipleIngredients = (ingredients) => {
     //     $http({
     //         method:'GET',
@@ -259,6 +266,7 @@ app.controller('MainController', ['$http', function($http){
           }
       }).then(function(response){
           controller.loggedInUser = response.data
+          controller.signUpModal = false
       })
   }
 
@@ -278,6 +286,7 @@ app.controller('MainController', ['$http', function($http){
           controller.loginUsername = null;
           controller.loginPassword = null;
       }
+      controller.logInModal = false
    })
   }
 
