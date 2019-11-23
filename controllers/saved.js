@@ -4,6 +4,7 @@ const Drinks = require('../models/drinks.js')
 const User = require('../models/users.js')
 
 router.patch('/', (req, res) => {
+    console.log(req.body);
     User.findByIdAndUpdate(req.session.user._id,{$push: {savedDrinks:req.body}}, (err, foundUser) => {
         res.json(foundUser)
     })
