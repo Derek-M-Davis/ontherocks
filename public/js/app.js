@@ -218,7 +218,7 @@ app.controller('MainController', ['$http', function($http){
             url:'/saved',
         }).then(response => {
             this.savedDrinks = response.savedDrinks
-        } error => {
+        }, error => {
             console.log(error);
         })
     }
