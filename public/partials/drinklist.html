@@ -13,6 +13,43 @@
     <div ng-if="ctrl.modal === true" id="drinkModal">
       <h1>{{ctrl.drink.strDrink}}</h1>
       <img src="{{ctrl.drink.strDrinkThumb}}" alt="">
+      <form ng-submit="ctrl.saveDrink()">
+        <input  type="hidden" ng-model="ctrl.savedStrDrink" value="{{ctrl.drink.strDrink}}"><br>
+        <input  type="hidden" ng-model="ctrl.savedStrDrinkThumb" value="{{ctrl.drink.strDrinkThumb}}"><br>
+        <input  type="hidden" ng-model="ctrl.savedStrIngredient1" value="{{ctrl.drink.strIngredient1}}"><br>
+        <input  type="hidden" ng-model="ctrl.savedStrIngredient2" value="{{ctrl.drink.strIngredient2}}"><br>
+        <input  type="hidden" ng-model="ctrl.savedStrIngredient3" value="{{ctrl.drink.strIngredient3}}"><br>
+        <input  type="hidden" ng-model="ctrl.savedStrIngredient4" value="{{ctrl.drink.strIngredient4}}"><br>
+        <input  type="hidden" ng-model="ctrl.savedStrIngredient5" value="{{ctrl.drink.strIngredient5}}"><br>
+        <input  type="hidden" ng-model="ctrl.savedStrIngredient6" value="{{ctrl.drink.strIngredient6}}"><br>
+        <input  type="hidden" ng-model="ctrl.savedStrIngredient7" value="{{ctrl.drink.strIngredient7}}"><br>
+        <input  type="hidden" ng-model="ctrl.savedStrIngredient8" value="{{ctrl.drink.strIngredient8}}"><br>
+        <input  type="hidden" ng-model="ctrl.savedStrIngredient9" value="{{ctrl.drink.strIngredient9}}"><br>
+        <input  type="hidden" ng-model="ctrl.savedStrIngredient10" value="{{ctrl.drink.strIngredient10}}"><br>
+        <input  type="hidden" ng-model="ctrl.savedStrIngredient11" value="{{ctrl.drink.strIngredient11}}"><br>
+        <input  type="hidden" ng-model="ctrl.savedStrIngredient12" value="{{ctrl.drink.strIngredient12}}"><br>
+        <input  type="hidden" ng-model="ctrl.savedStrIngredient13" value="{{ctrl.drink.strIngredient13}}"><br>
+        <input  type="hidden" ng-model="ctrl.savedStrIngredient14" value="{{ctrl.drink.strIngredient14}}"><br>
+        <input  type="hidden" ng-model="ctrl.savedStrIngredient15" value="{{ctrl.drink.strIngredient15}}"><br>
+        <input  type="hidden" ng-model="ctrl.savedStrInstructions" value="{{ctrl.drink.strInstructions}}"><br>
+        <input  type="hidden" ng-model="ctrl.savedStrMeasure1" value="{{ctrl.drink.strMeasure1}}"><br>
+        <input  type="hidden" ng-model="ctrl.savedStrMeasure2" value="{{ctrl.drink.strMeasure2}}"><br>
+        <input  type="hidden" ng-model="ctrl.savedStrMeasure3" value="{{ctrl.drink.strMeasure3}}"><br>
+        <input  type="hidden" ng-model="ctrl.savedStrMeasure4" value="{{ctrl.drink.strMeasure4}}"><br>
+        <input  type="hidden" ng-model="ctrl.savedStrMeasure5" value="{{ctrl.drink.strMeasure5}}"><br>
+        <input  type="hidden" ng-model="ctrl.savedStrMeasure6" value="{{ctrl.drink.strMeasure6}}"><br>
+        <input  type="hidden" ng-model="ctrl.savedStrMeasure7" value="{{ctrl.drink.strMeasure7}}"><br>
+        <input  type="hidden" ng-model="ctrl.savedStrMeasure8" value="{{ctrl.drink.strMeasure8}}"><br>
+        <input  type="hidden" ng-model="ctrl.savedStrMeasure9" value="{{ctrl.drink.strMeasure9}}"><br>
+        <input  type="hidden" ng-model="ctrl.savedStrMeasure10" value="{{ctrl.drink.strMeasure10}}"><br>
+        <input  type="hidden" ng-model="ctrl.savedStrMeasure11" value="{{ctrl.drink.strMeasure11}}"><br>
+        <input  type="hidden" ng-model="ctrl.savedStrMeasure12" value="{{ctrl.drink.strMeasure12}}"><br>
+        <input  type="hidden" ng-model="ctrl.savedStrMeasure13" value="{{ctrl.drink.strMeasure13}}"><br>
+        <input  type="hidden" ng-model="ctrl.savedStrMeasure14" value="{{ctrl.drink.strMeasure14}}"><br>
+        <input  type="hidden" ng-model="ctrl.savedStrMeasure15" value="{{ctrl.drink.strMeasure15}}"><br>
+        <input  type="hidden" ng-model="ctrl.savedNotes" value="{{ctrl.drink.notes}}"><br>
+        <input ng-if="ctrl.loggedInUser !== false" type="submit" value="Save Drink">
+      </form>
       <button ng-click="ctrl.closeModal()">Close</button>
     </div>
 </ul>
