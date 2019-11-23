@@ -267,7 +267,9 @@ app.controller('MainController', ['$http', function($http){
       }).then(function(response){
           controller.loggedInUser = response.data
           controller.signUpModal = false
-      })
+        })
+        controller.signupUsername = ''
+        controller.signupPassword = ''
   }
 
   // LOGIN FUNCTION
@@ -287,6 +289,8 @@ app.controller('MainController', ['$http', function($http){
           controller.loginPassword = null;
       }
       controller.logInModal = false
+      controller.loginUsername = ''
+      controller.loginPassword = ''
    })
   }
 
