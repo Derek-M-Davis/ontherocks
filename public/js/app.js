@@ -152,6 +152,53 @@ app.controller('MainController', ['$http', function($http){
             console.log(error);
         })
     }
+    // SAVED DRINKS 
+    this.saveDrink = () => {
+        $http({
+            method: 'PATCH',
+            url: '/saved',
+            data:{
+                strDrink: this.savedStrDrink,
+                strDrinkThumb: this.savedStrDrinkThumb,
+                strIngredient1: this.savedStrIngredient1,
+                strIngredient2: this.savedStrIngredient2,
+                strIngredient3: this.savedStrIngredient3,
+                strIngredient4: this.savedStrIngredient4,
+                strIngredient5: this.savedStrIngredient5,
+                strIngredient6: this.savedStrIngredient6,
+                strIngredient7: this.savedStrIngredient7,
+                strIngredient8: this.savedStrIngredient8,
+                strIngredient9: this.savedStrIngredient9,
+                strIngredient10: this.savedStrIngredient10,
+                strIngredient11: this.savedStrIngredient11,
+                strIngredient12: this.savedStrIngredient12,
+                strIngredient13: this.savedStrIngredient13,
+                strIngredient14: this.savedStrIngredient14,
+                strIngredient15: this.savedStrIngredient15,
+                strInstructions: this.savedStrIngredient,
+                strMeasure1: this.savedStrMeasure1,
+                strMeasure2: this.savedStrMeasure2,
+                strMeasure3: this.savedStrMeasure3,
+                strMeasure4: this.savedStrMeasure4,
+                strMeasure5: this.savedStrMeasure5,
+                strMeasure6: this.savedStrMeasure6,
+                strMeasure7: this.savedStrMeasure7,
+                strMeasure8: this.savedStrMeasure8,
+                strMeasure9: this.savedStrMeasure9,
+                strMeasure10: this.savedStrMeasure10,
+                strMeasure11: this.savedStrMeasure11,
+                strMeasure12: this.savedStrMeasure12,
+                strMeasure13: this.savedStrMeasure13,
+                strMeasure14: this.savedStrMeasure14,
+                strMeasure15: this.savedStrMeasure15,
+                notes: this.savedNotes 
+            }
+        }).then(response => {
+            console.log(response)
+        }, error => {
+            console.log(error)
+        })
+    }
 
     this.getAllVodkaDrinks();
 
