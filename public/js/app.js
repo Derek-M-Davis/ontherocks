@@ -16,7 +16,14 @@ app.controller('MainController', ['$http', function($http){
     this.showDrink = (drink) => {
       this.drink = drink
       this.modal = !this.modal
-    }
+        $http({
+            method:'GET',
+            url:'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=' + this.drink.idDrink
+        }).then(response => {
+            this.drink = response.data.drinks[0];
+            console.log(this.drink);
+    })}
+    
 
     // CLOSE MODAL
     this.closeModal = () => {
