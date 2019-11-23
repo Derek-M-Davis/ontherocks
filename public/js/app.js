@@ -211,6 +211,28 @@ app.controller('MainController', ['$http', function($http){
 
     this.getAllVodkaDrinks();
 
+    // Populate Saved Drinks for user function
+    this.getSavedDrinks = () => {
+        $http({
+            method:'GET',
+            url:'/saved',
+        }).then(response => {
+            this.savedDrinks = response.savedDrinks
+        } error => {
+            console.log(error);
+        })
+    }
+
+    //Add in drink notes / goes with edit route of saved drinks
+    this.addDrinkNotes = () => {
+
+    }
+
+    // Delete function for saved drinks
+    this.deleteSavedDrink = () => {
+
+    }
+
     //Filter Function once we purchase key
     // this.getListByMultipleIngredients = (ingredients) => {
     //     $http({
