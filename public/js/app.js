@@ -9,10 +9,11 @@ app.controller('MainController', ['$http', function($http){
     this.showVodka = null;
 
     this.modal = false // Toggle Modal
-    this.signUpModal = false
-    this.logInModal = false
+    this.signUpModal = false // Toggle Sign Up Modal
+    this.logInModal = false // Toggle Log In Modal
+    this.userSavedDrinks = false // Show Saved Drinks
 
-    // DRINK MODAL
+    // SHOW DRINK MODAL
     this.showDrink = (drink) => {
       this.drink = drink
       this.modal = !this.modal
@@ -23,16 +24,22 @@ app.controller('MainController', ['$http', function($http){
             this.drink = response.data.drinks[0];
             console.log(this.drink);
     })}
-    
 
-    // CLOSE MODAL
+    // SHOW SAVED DRINK MODAL
+    this.showSavedDrink = (drink) => {
+      this.drink = drink
+      this.modal = !this.modal
+      console.log(drink);
+    }
+
+    // CLOSE MODALS
     this.closeModal = () => {
       this.modal = false
     }
 
     // WHISKEY DRINK LIST
     this.toggleWhiskey = () => {
-        this.showWhiskey = true;
+        this.showWhiskey = !this.showWhiskey;
         this.showTequila = null;
         this.showRum = null;
         this.showGin = null;
@@ -42,7 +49,7 @@ app.controller('MainController', ['$http', function($http){
     // TEQUILA DRINK LIST
     this.toggleTequila = () => {
         this.showWhiskey = null;
-        this.showTequila = true;
+        this.showTequila = !this.showTequila;
         this.showRum = null;
         this.showGin = null;
         this.showVodka = null;
@@ -52,7 +59,7 @@ app.controller('MainController', ['$http', function($http){
     this.toggleRum = () => {
         this.showWhiskey = null;
         this.showTequila = null;
-        this.showRum = true;
+        this.showRum = !this.showRum;
         this.showGin = null;
         this.showVodka = null;
     }
@@ -62,7 +69,7 @@ app.controller('MainController', ['$http', function($http){
         this.showWhiskey = null;
         this.showTequila = null;
         this.showRum = null;
-        this.showGin = true;
+        this.showGin = !this.showGin;
         this.showVodka = null;
     }
 
@@ -72,9 +79,8 @@ app.controller('MainController', ['$http', function($http){
         this.showTequila = null;
         this.showRum = null;
         this.showGin = null;
-        this.showVodka = true;
+        this.showVodka = !this.showVodka;
     }
-
 
     // SPECIFIC DRINK
     this.getDrinkByName = (drink) => {
@@ -160,7 +166,11 @@ app.controller('MainController', ['$http', function($http){
         })
     }
 
-    // SAVED DRINKS
+    this.getAllVodkaDrinks();
+
+
+
+    // SAVE DRINKS
     this.saveDrink = (drink) => {
         $http({
             method:'GET',
@@ -210,13 +220,13 @@ app.controller('MainController', ['$http', function($http){
                 }
             }).then(response => {
                 console.log(response)
+                this.modal = !this.modal // closes modal
+                // this.showUserSavedDrinks() // brings user to their saved drinks
             }, error => {
                 console.log(error)
             })
         })
     }
-
-    this.getAllVodkaDrinks();
 
     // Populate Saved Drinks for user function
     this.getSavedDrinks = () => {
@@ -228,6 +238,16 @@ app.controller('MainController', ['$http', function($http){
         }, error => {
             console.log(error);
         })
+    }
+
+    // TOGGLE SAVED DRINKS
+    this.showUserSavedDrinks = () => {
+      this.userSavedDrinks = !this.userSavedDrinks
+      this.showWhiskey = null;
+      this.showTequila = null;
+      this.showRum = null;
+      this.showGin = null;
+      this.showVodka = null;
     }
 
     //Add in drink notes / goes with edit route of saved drinks
@@ -302,6 +322,11 @@ app.controller('MainController', ['$http', function($http){
       }).then(function(){
           controller.loggedInUser = false
       })
+      this.showWhiskey = null;
+      this.showTequila = null;
+      this.showRum = null;
+      this.showGin = null;
+      this.showVodka = null;
    }
 
   // SESSION COOKIE
@@ -313,6 +338,6 @@ app.controller('MainController', ['$http', function($http){
           controller.loggedInUser = response.data
       }
   })
-console.log(this.loggedInUser);
+  console.log(this.loggedInUser);
 
 }]) // END
