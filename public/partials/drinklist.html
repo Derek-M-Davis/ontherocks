@@ -31,7 +31,7 @@
       </div>
       <h3>Instructions:</h3>
         <p class="instructions">{{ctrl.drink.strInstructions}}</p><br>
-      <p>Notes: {{ctrl.drink.notes}}</p><br>
+      <p>Notes: {{ctrl.drink.notes}}<span ng-if="ctrl.loggedInUser !== false && ctrl.drink.notes === ''">Drink Notes go here</span></p><br>
       <button ng-if="ctrl.loggedInUser !== false && ctrl.drink.notes === ''" type="button" ng-click="ctrl.deleteSavedDrink(ctrl.drink)">Edit Notes</button>
       <button ng-if="ctrl.loggedInUser !== false && ctrl.drink.notes === ''" type="button" ng-click="ctrl.deleteSavedDrink(ctrl.drink)">Unsave Drink</button>
       <button ng-click="ctrl.closeModal()">Close</button>
