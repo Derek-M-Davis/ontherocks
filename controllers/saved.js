@@ -6,8 +6,6 @@ const User = require('../models/users.js')
 // Create saved drinks route
 router.patch('/', (req, res) => {
     User.findByIdAndUpdate(req.session.user._id,{$push: {savedDrinks:req.body}}, {new:true}, (err, foundUser) => {
-        console.log(foundUser);
-        console.log(req.session.user);
         req.session.user = foundUser;
         res.json(foundUser)
     })
@@ -25,7 +23,11 @@ router.get('/', (req, res) => {
 
 
 // Delete Route for users saved drinks
-
+router.delete('/:id', (req,res) => {
+    User.findByIdAndUpdate(req.session.user._id, {$pull: {savedDrinks: {_id: req.params.id}}}, {new:true}, (err, foundUser) => {
+        res.json(foundUser)
+    });
+})
 
 
 module.exports = router;

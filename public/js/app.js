@@ -253,8 +253,13 @@ app.controller('MainController', ['$http', function($http){
     }
 
     // Delete function for saved drinks
-    this.deleteSavedDrink = () => {
-
+    this.deleteSavedDrink = (drink) => {
+        $http({
+            method:'DELETE',
+            url:'/saved/' + drink._id
+        }).then(response => {
+            this.loggedInUser = response.data
+        })
     }
 
     // Filter Function once we purchase key

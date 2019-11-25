@@ -4,7 +4,7 @@
 <div class="saved" ng-if="ctrl.userSavedDrinks === true" class="yourDrinks">
   <div class="listedSavedDrink" ng-repeat="drink in ctrl.loggedInUser.savedDrinks">
     <h4>{{drink.strDrink}}</h4>
-    <img src="{{drink.strDrinkThumb}}" alt="" ng-click="ctrl.showSavedDrink(drink)" >
+    <img src="{{drink.strDrinkThumb}}" alt="" ng-click="ctrl.showSavedDrink(drink)">
   </div>
   <!-- Saved Drink Modal -->
   <div ng-if="ctrl.modal === true" id="drinkModal">
