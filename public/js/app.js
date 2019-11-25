@@ -114,7 +114,6 @@ app.controller('MainController', ['$http', function($http){
             url:'https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Tequila'
         }).then(response => {
             this.allTequilaDrinks = response.data.drinks;
-            console.log(response.data);
         }, error => {
             console.log(error);
         })
@@ -129,7 +128,6 @@ app.controller('MainController', ['$http', function($http){
             url:'https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Rum'
         }).then(response => {
             this.allRumDrinks = response.data.drinks;
-            console.log(response.data);
         }, error => {
             console.log(error);
         })
@@ -144,7 +142,6 @@ app.controller('MainController', ['$http', function($http){
             url:'https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Gin'
         }).then(response => {
             this.allGinDrinks = response.data.drinks;
-            console.log(response.data);
         }, error => {
             console.log(error);
         })
@@ -159,7 +156,6 @@ app.controller('MainController', ['$http', function($http){
             url:'https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Vodka'
         }).then(response => {
             this.allVodkaDrinks = response.data.drinks;
-            console.log(response.data);
         }, error => {
             console.log(error);
         })
@@ -248,8 +244,51 @@ app.controller('MainController', ['$http', function($http){
     }
 
     //Add in drink notes / goes with edit route of saved drinks
-    this.addDrinkNotes = () => {
-
+    this.addDrinkNotes = (drink) => {
+        $http({
+            method:'PUT',
+            url:'/saved/' + drink._id,
+            data: {
+                strDrink: drink.strDrink,
+                strDrinkThumb: drink.strDrinkThumb,
+                strIngredient1: drink.strIngredient1,
+                strIngredient2: drink.strIngredient2,
+                strIngredient3: drink.strIngredient3,
+                strIngredient4: drink.strIngredient4,
+                strIngredient5: drink.strIngredient5,
+                strIngredient6: drink.strIngredient6,
+                strIngredient7: drink.strIngredient7,
+                strIngredient8: drink.strIngredient8,
+                strIngredient9: drink.strIngredient9,
+                strIngredient10: drink.strIngredient10,
+                strIngredient11: drink.strIngredient11,
+                strIngredient12: drink.strIngredient12,
+                strIngredient13: drink.strIngredient13,
+                strIngredient14: drink.strIngredient14,
+                strIngredient15: drink.strIngredient15,
+                strInstructions: drink.strInstructions,
+                strMeasure1: drink.strMeasure1,
+                strMeasure2: drink.strMeasure2,
+                strMeasure3: drink.strMeasure3,
+                strMeasure4: drink.strMeasure4,
+                strMeasure5: drink.strMeasure5,
+                strMeasure6: drink.strMeasure6,
+                strMeasure7: drink.strMeasure7,
+                strMeasure8: drink.strMeasure8,
+                strMeasure9: drink.strMeasure9,
+                strMeasure10: drink.strMeasure10,
+                strMeasure11: drink.strMeasure11,
+                strMeasure12: drink.strMeasure12,
+                strMeasure13: drink.strMeasure13,
+                strMeasure14: drink.strMeasure14,
+                strMeasure15: drink.strMeasure15,
+                notes: this.editedNotes
+            }
+        }).then(response => {
+            this.loggedInUser = response.data
+        })
+        this.closeModal();
+        this.editedNotes = ''
     }
 
     // Delete function for saved drinks
