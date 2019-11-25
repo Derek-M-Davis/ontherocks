@@ -1,6 +1,17 @@
 /* ALL PAGES */
+body {
+  background-image: url("/images/assorted-alcoholic-drinks-2796105.jpg");
+  background-repeat: fixed;
+  background-position: center;
+}
+
 nav {
   background: whitesmoke;
+  height: 2.5em;
+}
+
+h3 {
+  text-align: center;
 }
 
 #drinkModal, #signupModal, #loginModal {

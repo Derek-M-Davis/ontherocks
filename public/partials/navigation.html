@@ -5,5 +5,5 @@
   <a href="#" ng-if="ctrl.loggedInUser === false" ng-click="ctrl.signUpModal = true">Sign Up</a>
   <a href="#" ng-if="ctrl.loggedInUser !== false" ng-click="ctrl.logout()">Log Out</a>
 </nav>
-
+<h3>Welcome: {{ctrl.loggedInUser.username}}</h3>
 <!-- class="navbar sticky-top navbar-expand-lg nav-pills justify-content-start container-fluid" -->
