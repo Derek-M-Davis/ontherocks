@@ -9,23 +9,36 @@ app.controller('MainController', ['$http', function($http){
     this.showVodka = null;
 
     this.modal = false // Toggle Modal
-    this.signUpModal = false
-    this.logInModal = false
+    this.signUpModal = false // Toggle Sign Up Modal
+    this.logInModal = false // Toggle Log In Modal
+    this.userSavedDrinks = false // Show Saved Drinks
 
-    // DRINK MODAL
+    // SHOW DRINK MODAL
     this.showDrink = (drink) => {
       this.drink = drink
       this.modal = !this.modal
+        $http({
+            method:'GET',
+            url:'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=' + this.drink.idDrink
+        }).then(response => {
+            this.drink = response.data.drinks[0];
+    })}
+
+    // SHOW SAVED DRINK MODAL
+    this.showSavedDrink = (drink) => {
+      this.drink = drink
+      this.modal = !this.modal
+      console.log(drink);
     }
 
-    // CLOSE MODAL
+    // CLOSE MODALS
     this.closeModal = () => {
       this.modal = false
     }
 
     // WHISKEY DRINK LIST
     this.toggleWhiskey = () => {
-        this.showWhiskey = true;
+        this.showWhiskey = !this.showWhiskey;
         this.showTequila = null;
         this.showRum = null;
         this.showGin = null;
@@ -35,7 +48,7 @@ app.controller('MainController', ['$http', function($http){
     // TEQUILA DRINK LIST
     this.toggleTequila = () => {
         this.showWhiskey = null;
-        this.showTequila = true;
+        this.showTequila = !this.showTequila;
         this.showRum = null;
         this.showGin = null;
         this.showVodka = null;
@@ -45,7 +58,7 @@ app.controller('MainController', ['$http', function($http){
     this.toggleRum = () => {
         this.showWhiskey = null;
         this.showTequila = null;
-        this.showRum = true;
+        this.showRum = !this.showRum;
         this.showGin = null;
         this.showVodka = null;
     }
@@ -55,7 +68,7 @@ app.controller('MainController', ['$http', function($http){
         this.showWhiskey = null;
         this.showTequila = null;
         this.showRum = null;
-        this.showGin = true;
+        this.showGin = !this.showGin;
         this.showVodka = null;
     }
 
@@ -65,9 +78,8 @@ app.controller('MainController', ['$http', function($http){
         this.showTequila = null;
         this.showRum = null;
         this.showGin = null;
-        this.showVodka = true;
+        this.showVodka = !this.showVodka;
     }
-
 
     // SPECIFIC DRINK
     this.getDrinkByName = (drink) => {
@@ -102,7 +114,6 @@ app.controller('MainController', ['$http', function($http){
             url:'https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Tequila'
         }).then(response => {
             this.allTequilaDrinks = response.data.drinks;
-            console.log(response.data);
         }, error => {
             console.log(error);
         })
@@ -117,7 +128,6 @@ app.controller('MainController', ['$http', function($http){
             url:'https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Rum'
         }).then(response => {
             this.allRumDrinks = response.data.drinks;
-            console.log(response.data);
         }, error => {
             console.log(error);
         })
@@ -132,7 +142,6 @@ app.controller('MainController', ['$http', function($http){
             url:'https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Gin'
         }).then(response => {
             this.allGinDrinks = response.data.drinks;
-            console.log(response.data);
         }, error => {
             console.log(error);
         })
@@ -147,21 +156,22 @@ app.controller('MainController', ['$http', function($http){
             url:'https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Vodka'
         }).then(response => {
             this.allVodkaDrinks = response.data.drinks;
-            console.log(response.data);
         }, error => {
             console.log(error);
         })
     }
 
-    // SAVED DRINKS
+    this.getAllVodkaDrinks();
+
+
+
+    // SAVE DRINKS
     this.saveDrink = (drink) => {
         $http({
             method:'GET',
             url:'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=' + this.drink.idDrink
         }).then(response => {
             this.savedDrink = response.data.drinks[0];
-            console.log(response.data.drinks[0]);
-            console.log(this.savedDrink);
             $http({
                 method: 'PATCH',
                 url: '/saved',
@@ -203,13 +213,13 @@ app.controller('MainController', ['$http', function($http){
                 }
             }).then(response => {
                 console.log(response)
+                this.modal = !this.modal // closes modal
+                // this.showUserSavedDrinks() // brings user to their saved drinks
             }, error => {
                 console.log(error)
             })
         })
     }
-
-    this.getAllVodkaDrinks();
 
     // Populate Saved Drinks for user function
     this.getSavedDrinks = () => {
@@ -223,17 +233,75 @@ app.controller('MainController', ['$http', function($http){
         })
     }
 
-    //Add in drink notes / goes with edit route of saved drinks
-    this.addDrinkNotes = () => {
+    // TOGGLE SAVED DRINKS
+    this.showUserSavedDrinks = () => {
+      this.userSavedDrinks = !this.userSavedDrinks
+      this.showWhiskey = null;
+      this.showTequila = null;
+      this.showRum = null;
+      this.showGin = null;
+      this.showVodka = null;
+    }
 
+    //Add in drink notes / goes with edit route of saved drinks
+    this.addDrinkNotes = (drink) => {
+        $http({
+            method:'PUT',
+            url:'/saved/' + drink._id,
+            data: {
+                strDrink: drink.strDrink,
+                strDrinkThumb: drink.strDrinkThumb,
+                strIngredient1: drink.strIngredient1,
+                strIngredient2: drink.strIngredient2,
+                strIngredient3: drink.strIngredient3,
+                strIngredient4: drink.strIngredient4,
+                strIngredient5: drink.strIngredient5,
+                strIngredient6: drink.strIngredient6,
+                strIngredient7: drink.strIngredient7,
+                strIngredient8: drink.strIngredient8,
+                strIngredient9: drink.strIngredient9,
+                strIngredient10: drink.strIngredient10,
+                strIngredient11: drink.strIngredient11,
+                strIngredient12: drink.strIngredient12,
+                strIngredient13: drink.strIngredient13,
+                strIngredient14: drink.strIngredient14,
+                strIngredient15: drink.strIngredient15,
+                strInstructions: drink.strInstructions,
+                strMeasure1: drink.strMeasure1,
+                strMeasure2: drink.strMeasure2,
+                strMeasure3: drink.strMeasure3,
+                strMeasure4: drink.strMeasure4,
+                strMeasure5: drink.strMeasure5,
+                strMeasure6: drink.strMeasure6,
+                strMeasure7: drink.strMeasure7,
+                strMeasure8: drink.strMeasure8,
+                strMeasure9: drink.strMeasure9,
+                strMeasure10: drink.strMeasure10,
+                strMeasure11: drink.strMeasure11,
+                strMeasure12: drink.strMeasure12,
+                strMeasure13: drink.strMeasure13,
+                strMeasure14: drink.strMeasure14,
+                strMeasure15: drink.strMeasure15,
+                notes: this.editedNotes
+            }
+        }).then(response => {
+            this.loggedInUser = response.data
+        })
+        this.closeModal();
+        this.editedNotes = ''
     }
 
     // Delete function for saved drinks
-    this.deleteSavedDrink = () => {
-
+    this.deleteSavedDrink = (drink) => {
+        $http({
+            method:'DELETE',
+            url:'/saved/' + drink._id
+        }).then(response => {
+            this.loggedInUser = response.data
+        })
     }
 
-    //Filter Function once we purchase key
+    // Filter Function once we purchase key
     // this.getListByMultipleIngredients = (ingredients) => {
     //     $http({
     //         method:'GET',
@@ -259,7 +327,10 @@ app.controller('MainController', ['$http', function($http){
           }
       }).then(function(response){
           controller.loggedInUser = response.data
-      })
+          controller.signUpModal = false
+        })
+        controller.signupUsername = ''
+        controller.signupPassword = ''
   }
 
   // LOGIN FUNCTION
@@ -278,6 +349,9 @@ app.controller('MainController', ['$http', function($http){
           controller.loginUsername = null;
           controller.loginPassword = null;
       }
+      controller.logInModal = false
+      controller.loginUsername = ''
+      controller.loginPassword = ''
    })
   }
 
@@ -289,8 +363,22 @@ app.controller('MainController', ['$http', function($http){
       }).then(function(){
           controller.loggedInUser = false
       })
+      this.showWhiskey = null;
+      this.showTequila = null;
+      this.showRum = null;
+      this.showGin = null;
+      this.showVodka = null;
    }
 
+   // Update Session Cookie FUNCTION
+   this.updateUser = () => {
+       $http({
+           method:'GET',
+           url:'/session'
+       }).then(response => {
+           this.loggedInUser = response.data
+       })
+   }
   // SESSION COOKIE
   $http({
       method: 'GET',
@@ -300,6 +388,6 @@ app.controller('MainController', ['$http', function($http){
           controller.loggedInUser = response.data
       }
   })
-console.log(this.loggedInUser);
+  console.log(this.loggedInUser);
 
 }]) // END
