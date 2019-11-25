@@ -5,7 +5,10 @@ const User = require('../models/users.js')
 
 // Create saved drinks route
 router.patch('/', (req, res) => {
-    User.findByIdAndUpdate(req.session.user._id,{$push: {savedDrinks:req.body}}, (err, foundUser) => {
+    User.findByIdAndUpdate(req.session.user._id,{$push: {savedDrinks:req.body}}, {new:true}, (err, foundUser) => {
+        console.log(foundUser);
+        console.log(req.session.user);
+        req.session.user = foundUser;
         res.json(foundUser)
     })
 })
