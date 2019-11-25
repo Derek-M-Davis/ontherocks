@@ -22,7 +22,6 @@ app.controller('MainController', ['$http', function($http){
             url:'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=' + this.drink.idDrink
         }).then(response => {
             this.drink = response.data.drinks[0];
-            console.log(this.drink);
     })}
 
     // SHOW SAVED DRINK MODAL
@@ -177,8 +176,6 @@ app.controller('MainController', ['$http', function($http){
             url:'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=' + this.drink.idDrink
         }).then(response => {
             this.savedDrink = response.data.drinks[0];
-            console.log(response.data.drinks[0]);
-            console.log(this.savedDrink);
             $http({
                 method: 'PATCH',
                 url: '/saved',
@@ -329,6 +326,15 @@ app.controller('MainController', ['$http', function($http){
       this.showVodka = null;
    }
 
+   // Update Session Cookie FUNCTION
+   this.updateUser = () => {
+       $http({
+           method:'GET',
+           url:'/session'
+       }).then(response => {
+           this.loggedInUser = response.data
+       })
+   }
   // SESSION COOKIE
   $http({
       method: 'GET',
