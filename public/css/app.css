@@ -70,6 +70,10 @@ h3 {
     margin-bottom: 3vh;
 }
 
+#savedDrinkBtns {
+    margin-bottom: 2vh;
+}
+
 #welcomeText {
     font-size: 4em;
 }
@@ -94,7 +98,7 @@ h3 {
 }
 textarea {
   height: 50px;
-  width: 200px;
+  width: 300px;
   margin: auto;
 }
 
@@ -197,43 +201,47 @@ ul {
 
 /* Specific Drink Modal */
 .showDrink {
-  border: 1px solid black;
+  border: 1px solid rgba(219,219,221,.9);
   border-radius: 3px;
-  background-color: whitesmoke;
+  background-color: black;
+  margin-top: 5%;
   text-align: center;
-  width: 400px;
+  width: 475px;
   max-width: 800px;
   max-height: 800px;
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  align-items: center;
-  overflow: auto;
+  align-items: center; */
+  overflow: overlay;
 }
   .showDrink > h2 {
     margin: 20px 10px 10px 5px;
     flex-wrap: wrap;
+    color: rgba(219,219,221,.9);
   }
   .showDrink > p {
-    margin: 0px 8px;
+    margin: 0px 20px;
+    color: rgba(219,219,221,.9);
   }
   .showDrink > .instructions {
     font-style:italic;
   }
   .showDrink > img {
-    width: 350px;
+    width: 375px;
     /* height: 300px; */
   }
   .ingredients > p {
     margin-bottom: 1px;
+    color: rgba(219,219,221,.9);
   }
   form > input {
     margin-bottom: 5px;
   }
-  .showDrink > button {
+  /* .showDrink > button {
     height: 30px;
     margin-bottom: 5px;
     border: 1px solid black;
-  }
+  } */
 
 
 /* YOUR DRINKS */

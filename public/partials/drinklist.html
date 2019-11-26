@@ -10,8 +10,8 @@
   <div ng-if="ctrl.modal === true" id="drinkModal">
     <div class="showDrink">
       <h2>{{ctrl.drink.strDrink}}</h2>
-      <img src="{{ctrl.drink.strDrinkThumb}}" alt=""><br>
-      <div class="ingredients">
+      <img src="{{ctrl.drink.strDrinkThumb}}" alt="">
+      <div class="ingredients" ng-if="ctrl.showInfo !== false"><br>
         <h5>Ingredients:</h5>
         <p><span ng-if="(ctrl.drink.strIngredient1 !== null && ctrl.drink.strIngredient1 !== '')">{{ctrl.drink.strIngredient1}}</span><span ng-if="(ctrl.drink.strMeasure1 !== null && ctrl.drink.strMeasure1 !=='')">: {{ctrl.drink.strMeasure1}}</span></p>
         <p><span ng-if="(ctrl.drink.strIngredient2 !== null && ctrl.drink.strIngredient2 !== '')">{{ctrl.drink.strIngredient2}}</span><span ng-if="(ctrl.drink.strMeasure2 !== null && ctrl.drink.strMeasure2 !=='')">: {{ctrl.drink.strMeasure2}}</span></p>
@@ -27,17 +27,24 @@
         <p><span ng-if="(ctrl.drink.strIngredient12 !== null && ctrl.drink.strIngredient12 !== '')">{{ctrl.drink.strIngredient12}}</span><span ng-if="(ctrl.drink.strMeasure12 !== null && ctrl.drink.strMeasure12 !=='')">: {{ctrl.drink.strMeasure12}}</span></p>
         <p><span ng-if="(ctrl.drink.strIngredient13 !== null && ctrl.drink.strIngredient13 !== '')">{{ctrl.drink.strIngredient13}}</span><span ng-if="(ctrl.drink.strMeasure13 !== null && ctrl.drink.strMeasure13 !=='')">: {{ctrl.drink.strMeasure13}}</span></p>
         <p><span ng-if="(ctrl.drink.strIngredient14 !== null && ctrl.drink.strIngredient14 !== '')">{{ctrl.drink.strIngredient14}}</span><span ng-if="(ctrl.drink.strMeasure14 !== null && ctrl.drink.strMeasure14 !=='')">: {{ctrl.drink.strMeasure14}}</span></p>
-        <p><span ng-if="(ctrl.drink.strIngredient15 !== null && ctrl.drink.strIngredient15 !== '')">{{ctrl.drink.strIngredient15}}</span><span ng-if="(ctrl.drink.strMeasure15 !== null && ctrl.drink.strMeasure15 !=='')">: {{ctrl.drink.strMeasure15}}</span></p>
-      </div><br>
-      <h5>Instructions:</h5>
-        <p class="instructions">{{ctrl.drink.strInstructions}}</p><br>
-      <p>Notes: {{ctrl.drink.notes}}<span ng-if="ctrl.loggedInUser !== false && ctrl.drink.notes === ''"></span></p>
-      <form ng-submit="ctrl.addDrinkNotes(ctrl.drink)">
-          <textarea ng-model="ctrl.editedNotes" rows="8" cols="50"></textarea><br>
-          <input type="submit" value="Edit Notes">
+        <p><span ng-if="(ctrl.drink.strIngredient15 !== null && ctrl.drink.strIngredient15 !== '')">{{ctrl.drink.strIngredient15}}</span><span ng-if="(ctrl.drink.strMeasure15 !== null && ctrl.drink.strMeasure15 !=='')">: {{ctrl.drink.strMeasure15}}</span></p><br>
+      </div>
+      <h5 ng-if="ctrl.showInfo !== false">Instructions:</h5>
+        <p class="instructions" ng-if="ctrl.showInfo !== false">{{ctrl.drink.strInstructions}}</p><br>
+      <h5 ng-if="ctrl.drink.notes !== '' && ctrl.showInfo !== false">Notes:</h5>
+        <p ng-if="ctrl.drink.notes !== '' && ctrl.showInfo !== false">{{ctrl.drink.notes}}</p><br>
+      <form ng-submit="ctrl.addDrinkNotes(ctrl.drink)" ng-if="ctrl.editNotes !== false">
+          <textarea ng-model="ctrl.editedNotes" rows="8" cols="50" placeholder="{{ctrl.drink.notes}}"></textarea><br>
+          <input class="btn btn-outline-light btn-lg" type="submit" value="Update Notes">
       </form>
-      <button ng-if="ctrl.loggedInUser !== false" type="button" ng-click="ctrl.deleteSavedDrink(ctrl.drink);ctrl.closeModal()">Unsave Drink</button>
-      <button ng-click="ctrl.closeModal()">Close</button>
+      <button id="savedDrinkBtns" class="btn btn-outline-light btn-lg" ng-if="ctrl.editNotes !== false" ng-click="ctrl.editNotes = !ctrl.editNotes">Cancel</button><br>
+      <div class="buttons" style="background:black">
+        <button id="savedDrinkBtns" class="btn btn-outline-light btn-lg" ng-if="ctrl.showInfo === false" ng-click="ctrl.showInfo = !ctrl.showInfo">Show Info</button>
+        <button id="savedDrinkBtns" class="btn btn-outline-light btn-lg" ng-if="ctrl.showInfo !== false" ng-click="ctrl.showInfo = !ctrl.showInfo">Hide Info</button>
+        <button id="savedDrinkBtns" class="btn btn-outline-light btn-lg" ng-if="ctrl.editNotes === false" ng-click="ctrl.editNotes = !ctrl.editNotes">Edit Notes</button>
+        <button id="savedDrinkBtns" class="btn btn-outline-light btn-lg" ng-if="ctrl.loggedInUser !== false" type="button" ng-click="ctrl.deleteSavedDrink(ctrl.drink);ctrl.closeModal()">Unsave Drink</button>
+        <button id="savedDrinkBtns" class="btn btn-outline-light btn-lg" ng-click="ctrl.closeModal(); ctrl.showInfo = false; ctrl.editNotes = false">Close</button>
+      </div>
     </div>
   </div>
 </div>
@@ -68,8 +75,8 @@
     <div ng-if="ctrl.modal === true" id="drinkModal">
       <div class="showDrink">
         <h2>{{ctrl.drink.strDrink}}</h2>
-        <img src="{{ctrl.drink.strDrinkThumb}}" alt=""><br>
-        <div class="ingredients">
+        <img src="{{ctrl.drink.strDrinkThumb}}" alt="">
+        <div class="ingredients"><br>
           <h5>Ingredients:</h5>
           <p><span ng-if="(ctrl.drink.strIngredient1 !== null && ctrl.drink.strIngredient1 !== '')">{{ctrl.drink.strIngredient1}}</span><span ng-if="(ctrl.drink.strMeasure1 !== null && ctrl.drink.strMeasure1 !=='')">: {{ctrl.drink.strMeasure1}}</span></p>
           <p><span ng-if="(ctrl.drink.strIngredient2 !== null && ctrl.drink.strIngredient2 !== '')">{{ctrl.drink.strIngredient2}}</span><span ng-if="(ctrl.drink.strMeasure2 !== null && ctrl.drink.strMeasure2 !=='')">: {{ctrl.drink.strMeasure2}}</span></p>
@@ -91,9 +98,9 @@
           <p class="instructions">{{ctrl.drink.strInstructions}}</p><br>
         <p ng-if="ctrl.loggedInUser === false" style="margin-bottom: 5px;"><small>Sign up or log in to save this drink</small></p>
         <form ng-submit="ctrl.saveDrink(drink)">
-          <input ng-if="ctrl.loggedInUser !== false" type="submit" value="Save Drink">
+          <input id="savedDrinkBtns" class="btn btn-outline-light btn-lg" ng-if="ctrl.loggedInUser !== false" type="submit" value="Save Drink">
         </form>
-        <button ng-click="ctrl.closeModal()">Close</button>
+        <button id="savedDrinkBtns" class="btn btn-outline-light btn-lg" ng-click="ctrl.closeModal()">Close</button>
       </div>
     </div>
 </ul>
@@ -110,8 +117,8 @@
     <div ng-if="ctrl.modal === true" id="drinkModal">
       <div class="showDrink">
         <h2>{{ctrl.drink.strDrink}}</h2>
-        <img src="{{ctrl.drink.strDrinkThumb}}" alt=""><br>
-        <div class="ingredients">
+        <img src="{{ctrl.drink.strDrinkThumb}}" alt="">
+        <div class="ingredients"><br>
           <h5>Ingredients:</h5>
           <p><span ng-if="(ctrl.drink.strIngredient1 !== null && ctrl.drink.strIngredient1 !== '')">{{ctrl.drink.strIngredient1}}</span><span ng-if="(ctrl.drink.strMeasure1 !== null && ctrl.drink.strMeasure1 !=='')">: {{ctrl.drink.strMeasure1}}</span></p>
           <p><span ng-if="(ctrl.drink.strIngredient2 !== null && ctrl.drink.strIngredient2 !== '')">{{ctrl.drink.strIngredient2}}</span><span ng-if="(ctrl.drink.strMeasure2 !== null && ctrl.drink.strMeasure2 !=='')">: {{ctrl.drink.strMeasure2}}</span></p>
@@ -133,9 +140,9 @@
           <p class="instructions">{{ctrl.drink.strInstructions}}</p><br>
           <p ng-if="ctrl.loggedInUser === false" style="margin-bottom: 5px;"><small>Sign up or log in to save this drink</small></p>
         <form ng-submit="ctrl.saveDrink(drink)">
-          <input ng-if="ctrl.loggedInUser !== false" type="submit" value="Save Drink">
+          <input id="savedDrinkBtns" class="btn btn-outline-light btn-lg" ng-if="ctrl.loggedInUser !== false" type="submit" value="Save Drink">
         </form>
-        <button ng-click="ctrl.closeModal()">Close</button>
+        <button id="savedDrinkBtns" class="btn btn-outline-light btn-lg" ng-click="ctrl.closeModal()">Close</button>
       </div>
     </div>
 </ul>
@@ -152,8 +159,8 @@
     <div ng-if="ctrl.modal === true" id="drinkModal">
       <div class="showDrink">
         <h2>{{ctrl.drink.strDrink}}</h2>
-        <img src="{{ctrl.drink.strDrinkThumb}}" alt=""><br>
-        <div class="ingredients">
+        <img src="{{ctrl.drink.strDrinkThumb}}" alt="">
+        <div class="ingredients"><br>
           <h5>Ingredients:</h5>
           <p><span ng-if="(ctrl.drink.strIngredient1 !== null && ctrl.drink.strIngredient1 !== '')">{{ctrl.drink.strIngredient1}}</span><span ng-if="(ctrl.drink.strMeasure1 !== null && ctrl.drink.strMeasure1 !=='')">: {{ctrl.drink.strMeasure1}}</span></p>
           <p><span ng-if="(ctrl.drink.strIngredient2 !== null && ctrl.drink.strIngredient2 !== '')">{{ctrl.drink.strIngredient2}}</span><span ng-if="(ctrl.drink.strMeasure2 !== null && ctrl.drink.strMeasure2 !=='')">: {{ctrl.drink.strMeasure2}}</span></p>
@@ -175,9 +182,9 @@
           <p class="instructions">{{ctrl.drink.strInstructions}}</p><br>
           <p ng-if="ctrl.loggedInUser === false" style="margin-bottom: 5px;"><small>Sign up or log in to save this drink</small></p>
         <form ng-submit="ctrl.saveDrink(drink)">
-          <input ng-if="ctrl.loggedInUser !== false" type="submit" value="Save Drink">
+          <input id="savedDrinkBtns" class="btn btn-outline-light btn-lg" ng-if="ctrl.loggedInUser !== false" type="submit" value="Save Drink">
         </form>
-        <button ng-click="ctrl.closeModal()">Close</button>
+        <button id="savedDrinkBtns" class="btn btn-outline-light btn-lg" ng-click="ctrl.closeModal()">Close</button>
       </div>
     </div>
 </ul>
@@ -194,8 +201,8 @@
     <div ng-if="ctrl.modal === true" id="drinkModal">
       <div class="showDrink">
         <h2>{{ctrl.drink.strDrink}}</h2>
-        <img src="{{ctrl.drink.strDrinkThumb}}" alt=""><br>
-        <div class="ingredients">
+        <img src="{{ctrl.drink.strDrinkThumb}}" alt="">
+        <div class="ingredients"><br>
           <h5>Ingredients:</h5>
           <p><span ng-if="(ctrl.drink.strIngredient1 !== null && ctrl.drink.strIngredient1 !== '')">{{ctrl.drink.strIngredient1}}</span><span ng-if="(ctrl.drink.strMeasure1 !== null && ctrl.drink.strMeasure1 !=='')">: {{ctrl.drink.strMeasure1}}</span></p>
           <p><span ng-if="(ctrl.drink.strIngredient2 !== null && ctrl.drink.strIngredient2 !== '')">{{ctrl.drink.strIngredient2}}</span><span ng-if="(ctrl.drink.strMeasure2 !== null && ctrl.drink.strMeasure2 !=='')">: {{ctrl.drink.strMeasure2}}</span></p>
@@ -217,9 +224,9 @@
           <p class="instructions">{{ctrl.drink.strInstructions}}</p><br>
           <p ng-if="ctrl.loggedInUser === false" style="margin-bottom: 5px;"><small>Sign up or log in to save this drink</small></p>
         <form ng-submit="ctrl.saveDrink(drink)">
-          <input ng-if="ctrl.loggedInUser !== false" type="submit" value="Save Drink">
+          <input id="savedDrinkBtns" class="btn btn-outline-light btn-lg" ng-if="ctrl.loggedInUser !== false" type="submit" value="Save Drink">
         </form>
-        <button ng-click="ctrl.closeModal()">Close</button>
+        <button id="savedDrinkBtns" class="btn btn-outline-light btn-lg" ng-click="ctrl.closeModal()">Close</button>
       </div>
     </div>
 </ul>
@@ -236,8 +243,8 @@
     <div ng-if="ctrl.modal === true" id="drinkModal">
       <div class="showDrink">
         <h2>{{ctrl.drink.strDrink}}</h2>
-        <img src="{{ctrl.drink.strDrinkThumb}}" alt=""><br>
-        <div class="ingredients">
+        <img src="{{ctrl.drink.strDrinkThumb}}" alt="">
+        <div class="ingredients"><br>
           <h5>Ingredients:</h5>
           <p><span ng-if="(ctrl.drink.strIngredient1 !== null && ctrl.drink.strIngredient1 !== '')">{{ctrl.drink.strIngredient1}}</span><span ng-if="(ctrl.drink.strMeasure1 !== null && ctrl.drink.strMeasure1 !=='')">: {{ctrl.drink.strMeasure1}}</span></p>
           <p><span ng-if="(ctrl.drink.strIngredient2 !== null && ctrl.drink.strIngredient2 !== '')">{{ctrl.drink.strIngredient2}}</span><span ng-if="(ctrl.drink.strMeasure2 !== null && ctrl.drink.strMeasure2 !=='')">: {{ctrl.drink.strMeasure2}}</span></p>
@@ -259,9 +266,9 @@
           <p class="instructions">{{ctrl.drink.strInstructions}}</p><br>
           <p ng-if="ctrl.loggedInUser === false" style="margin-bottom: 5px;"><small>Sign up or log in to save this drink</small></p>
         <form ng-submit="ctrl.saveDrink(drink)">
-          <input ng-if="ctrl.loggedInUser !== false" type="submit" value="Save Drink">
+          <input id="savedDrinkBtns" class="btn btn-outline-light btn-lg" ng-if="ctrl.loggedInUser !== false" type="submit" value="Save Drink">
         </form>
-        <button class="button" ng-click="ctrl.closeModal()">Close</button>
+        <button id="savedDrinkBtns" class="btn btn-outline-light btn-lg" class="button" ng-click="ctrl.closeModal()">Close</button>
       </div>
     </div>
 </ul>
