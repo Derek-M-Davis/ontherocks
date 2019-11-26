@@ -12,6 +12,8 @@ app.controller('MainController', ['$http', function($http){
     this.signUpModal = false // Toggle Sign Up Modal
     this.logInModal = false // Toggle Log In Modal
     this.userSavedDrinks = false // Show Saved Drinks
+    this.showInfo = false // Toggle Ingredients and Instructions
+    this.editNotes = false // Toggle Edit Note Text
 
     // SHOW DRINK MODAL
     this.showDrink = (drink) => {
@@ -388,6 +390,6 @@ app.controller('MainController', ['$http', function($http){
           controller.loggedInUser = response.data
       }
   })
-  
+
 
 }]) // END
