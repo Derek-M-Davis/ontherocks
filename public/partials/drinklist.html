@@ -3,37 +3,37 @@
 <!-- Saved Drink List -->
 <div class="saved" ng-if="ctrl.userSavedDrinks === true" class="yourDrinks">
   <div class="listedSavedDrink" ng-repeat="drink in ctrl.loggedInUser.savedDrinks">
-    <h4>{{drink.strDrink}}</h4>
+    <h3>{{drink.strDrink}}</h3>
     <img src="{{drink.strDrinkThumb}}" alt="" ng-click="ctrl.showSavedDrink(drink)">
   </div>
   <!-- Saved Drink Modal -->
   <div ng-if="ctrl.modal === true" id="drinkModal">
     <div class="showDrink">
-      <h1>{{ctrl.drink.strDrink}}</h1>
-      <img src="{{ctrl.drink.strDrinkThumb}}" alt="">
+      <h2>{{ctrl.drink.strDrink}}</h2>
+      <img src="{{ctrl.drink.strDrinkThumb}}" alt=""><br>
       <div class="ingredients">
-        <h3>Ingredients:</h3>
-        <p ng-if="ctrl.drink.strIngredient1 !== null || ctrl.drink.strMeasure1 !== null">{{ctrl.drink.strIngredient1}}: {{ctrl.drink.strMeasure1}}</p>
-        <p ng-if="ctrl.drink.strIngredient2 !== null || ctrl.drink.strMeasure2 !== null">{{ctrl.drink.strIngredient2}}: {{ctrl.drink.strMeasure2}}</p>
-        <p ng-if="ctrl.drink.strIngredient3 !== null || ctrl.drink.strMeasure3 !== null">{{ctrl.drink.strIngredient3}}: {{ctrl.drink.strMeasure3}}</p>
-        <p ng-if="ctrl.drink.strIngredient4 !== null || ctrl.drink.strMeasure4 !== null">{{ctrl.drink.strIngredient4}}: {{ctrl.drink.strMeasure4}}</p>
-        <p ng-if="ctrl.drink.strIngredient5 !== null || ctrl.drink.strMeasure5 !== null">{{ctrl.drink.strIngredient5}}: {{ctrl.drink.strMeasure5}}</p>
-        <p ng-if="ctrl.drink.strIngredient6 !== null || ctrl.drink.strMeasure6 !== null">{{ctrl.drink.strIngredient6}}: {{ctrl.drink.strMeasure6}}</p>
-        <p ng-if="ctrl.drink.strIngredient7 !== null || ctrl.drink.strMeasure7 !== null">{{ctrl.drink.strIngredient7}}: {{ctrl.drink.strMeasure7}}</p>
-        <p ng-if="ctrl.drink.strIngredient8 !== null || ctrl.drink.strMeasure8 !== null">{{ctrl.drink.strIngredient8}}: {{ctrl.drink.strMeasure8}}</p>
-        <p ng-if="ctrl.drink.strIngredient9 !== null || ctrl.drink.strMeasure9 !== null">{{ctrl.drink.strIngredient9}}: {{ctrl.drink.strMeasure9}}</p>
-        <p ng-if="ctrl.drink.strIngredient10 !== null || ctrl.drink.strMeasure10 !== null">{{ctrl.drink.strIngredient10}}: {{ctrl.drink.strMeasure10}}</p>
-        <p ng-if="ctrl.drink.strIngredient11 !== null || ctrl.drink.strMeasure11 !== null">{{ctrl.drink.strIngredient11}}: {{ctrl.drink.strMeasure11}}</p>
-        <p ng-if="ctrl.drink.strIngredient12 !== null || ctrl.drink.strMeasure12 !== null">{{ctrl.drink.strIngredient12}}: {{ctrl.drink.strMeasure12}}</p>
-        <p ng-if="ctrl.drink.strIngredient13 !== null || ctrl.drink.strMeasure13 !== null">{{ctrl.drink.strIngredient13}}: {{ctrl.drink.strMeasure13}}</p>
-        <p ng-if="ctrl.drink.strIngredient14 !== null || ctrl.drink.strMeasure14 !== null">{{ctrl.drink.strIngredient14}}: {{ctrl.drink.strMeasure14}}</p>
-        <p ng-if="ctrl.drink.strIngredient15 !== null || ctrl.drink.strMeasure15 !== null">{{ctrl.drink.strIngredient15}}: {{ctrl.drink.strMeasure15}}</p>
-      </div>
-      <h3>Instructions:</h3>
+        <h5>Ingredients:</h5>
+        <p><span ng-if="(ctrl.drink.strIngredient1 !== null && ctrl.drink.strIngredient1 !== '')">{{ctrl.drink.strIngredient1}}</span><span ng-if="(ctrl.drink.strMeasure1 !== null && ctrl.drink.strMeasure1 !=='')">: {{ctrl.drink.strMeasure1}}</span></p>
+        <p><span ng-if="(ctrl.drink.strIngredient2 !== null && ctrl.drink.strIngredient2 !== '')">{{ctrl.drink.strIngredient2}}</span><span ng-if="(ctrl.drink.strMeasure2 !== null && ctrl.drink.strMeasure2 !=='')">: {{ctrl.drink.strMeasure2}}</span></p>
+        <p><span ng-if="(ctrl.drink.strIngredient3 !== null && ctrl.drink.strIngredient1 !== '')">{{ctrl.drink.strIngredient3}}</span><span ng-if="(ctrl.drink.strMeasure3 !== null && ctrl.drink.strMeasure1 !=='')">: {{ctrl.drink.strMeasure3}}</span></p>
+        <p><span ng-if="(ctrl.drink.strIngredient4 !== null && ctrl.drink.strIngredient4 !== '')">{{ctrl.drink.strIngredient4}}</span><span ng-if="(ctrl.drink.strMeasure4 !== null && ctrl.drink.strMeasure4 !=='')">: {{ctrl.drink.strMeasure4}}</span></p>
+        <p><span ng-if="(ctrl.drink.strIngredient5 !== null && ctrl.drink.strIngredient5 !== '')">{{ctrl.drink.strIngredient5}}</span><span ng-if="(ctrl.drink.strMeasure5 !== null && ctrl.drink.strMeasure5 !=='')">: {{ctrl.drink.strMeasure5}}</span></p>
+        <p><span ng-if="(ctrl.drink.strIngredient6 !== null && ctrl.drink.strIngredient6 !== '')">{{ctrl.drink.strIngredient6}}</span><span ng-if="(ctrl.drink.strMeasure6 !== null && ctrl.drink.strMeasure6 !=='')">: {{ctrl.drink.strMeasure6}}</span></p>
+        <p><span ng-if="(ctrl.drink.strIngredient7 !== null && ctrl.drink.strIngredient7 !== '')">{{ctrl.drink.strIngredient7}}</span><span ng-if="(ctrl.drink.strMeasure7 !== null && ctrl.drink.strMeasure7 !=='')">: {{ctrl.drink.strMeasure7}}</span></p>
+        <p><span ng-if="(ctrl.drink.strIngredient8 !== null && ctrl.drink.strIngredient8 !== '')">{{ctrl.drink.strIngredient8}}</span><span ng-if="(ctrl.drink.strMeasure8 !== null && ctrl.drink.strMeasure8 !=='')">: {{ctrl.drink.strMeasure8}}</span></p>
+        <p><span ng-if="(ctrl.drink.strIngredient9 !== null && ctrl.drink.strIngredient9 !== '')">{{ctrl.drink.strIngredient9}}</span><span ng-if="(ctrl.drink.strMeasure9 !== null && ctrl.drink.strMeasure9 !=='')">: {{ctrl.drink.strMeasure9}}</span></p>
+        <p><span ng-if="(ctrl.drink.strIngredient10 !== null && ctrl.drink.strIngredient10 !== '')">{{ctrl.drink.strIngredient10}}</span><span ng-if="(ctrl.drink.strMeasure10 !== null && ctrl.drink.strMeasure10 !=='')">: {{ctrl.drink.strMeasure10}}</span></p>
+        <p><span ng-if="(ctrl.drink.strIngredient11 !== null && ctrl.drink.strIngredient11 !== '')">{{ctrl.drink.strIngredient11}}</span><span ng-if="(ctrl.drink.strMeasure11 !== null && ctrl.drink.strMeasure11 !=='')">: {{ctrl.drink.strMeasure11}}</span></p>
+        <p><span ng-if="(ctrl.drink.strIngredient12 !== null && ctrl.drink.strIngredient12 !== '')">{{ctrl.drink.strIngredient12}}</span><span ng-if="(ctrl.drink.strMeasure12 !== null && ctrl.drink.strMeasure12 !=='')">: {{ctrl.drink.strMeasure12}}</span></p>
+        <p><span ng-if="(ctrl.drink.strIngredient13 !== null && ctrl.drink.strIngredient13 !== '')">{{ctrl.drink.strIngredient13}}</span><span ng-if="(ctrl.drink.strMeasure13 !== null && ctrl.drink.strMeasure13 !=='')">: {{ctrl.drink.strMeasure13}}</span></p>
+        <p><span ng-if="(ctrl.drink.strIngredient14 !== null && ctrl.drink.strIngredient14 !== '')">{{ctrl.drink.strIngredient14}}</span><span ng-if="(ctrl.drink.strMeasure14 !== null && ctrl.drink.strMeasure14 !=='')">: {{ctrl.drink.strMeasure14}}</span></p>
+        <p><span ng-if="(ctrl.drink.strIngredient15 !== null && ctrl.drink.strIngredient15 !== '')">{{ctrl.drink.strIngredient15}}</span><span ng-if="(ctrl.drink.strMeasure15 !== null && ctrl.drink.strMeasure15 !=='')">: {{ctrl.drink.strMeasure15}}</span></p>
+      </div><br>
+      <h5>Instructions:</h5>
         <p class="instructions">{{ctrl.drink.strInstructions}}</p><br>
-      <p>Notes: {{ctrl.drink.notes}}<span ng-if="ctrl.loggedInUser !== false && ctrl.drink.notes === ''">Drink Notes go here</span></p><br>
+      <p>Notes: {{ctrl.drink.notes}}<span ng-if="ctrl.loggedInUser !== false && ctrl.drink.notes === ''"></span></p>
       <form ng-submit="ctrl.addDrinkNotes(ctrl.drink)">
-          <textarea ng-model="ctrl.editedNotes" rows="8" cols="50"></textarea>
+          <textarea ng-model="ctrl.editedNotes" rows="8" cols="50"></textarea><br>
           <input type="submit" value="Edit Notes">
       </form>
       <button ng-if="ctrl.loggedInUser !== false" type="button" ng-click="ctrl.deleteSavedDrink(ctrl.drink);ctrl.closeModal()">Unsave Drink</button>
@@ -44,6 +44,7 @@
 
 
 <!-- All Drinks Buttons -->
+<h4 ng-if="ctrl.userSavedDrinks === false">All Drinks</h4><br>
 <span class="allDrinks" ng-if="ctrl.userSavedDrinks === false">
   <button ng-click="ctrl.toggleWhiskey()">Whiskey</button>
   <button ng-click="ctrl.toggleTequila()">Tequila</button>
@@ -63,28 +64,29 @@
     <!-- WHISKEY Drink Modal -->
     <div ng-if="ctrl.modal === true" id="drinkModal">
       <div class="showDrink">
-        <h1>{{ctrl.drink.strDrink}}</h1>
-        <img src="{{ctrl.drink.strDrinkThumb}}" alt="">
+        <h2>{{ctrl.drink.strDrink}}</h2>
+        <img src="{{ctrl.drink.strDrinkThumb}}" alt=""><br>
         <div class="ingredients">
-          <h3>Ingredients:</h3>
-          <p ng-if="ctrl.drink.strIngredient1 !== null || ctrl.drink.strMeasure1 !== null">{{ctrl.drink.strIngredient1}}: {{ctrl.drink.strMeasure1}}</p>
-          <p ng-if="ctrl.drink.strIngredient2 !== null || ctrl.drink.strMeasure2 !== null">{{ctrl.drink.strIngredient2}}: {{ctrl.drink.strMeasure2}}</p>
-          <p ng-if="ctrl.drink.strIngredient3 !== null || ctrl.drink.strMeasure3 !== null">{{ctrl.drink.strIngredient3}}: {{ctrl.drink.strMeasure3}}</p>
-          <p ng-if="ctrl.drink.strIngredient4 !== null || ctrl.drink.strMeasure4 !== null">{{ctrl.drink.strIngredient4}}: {{ctrl.drink.strMeasure4}}</p>
-          <p ng-if="ctrl.drink.strIngredient5 !== null || ctrl.drink.strMeasure5 !== null">{{ctrl.drink.strIngredient5}}: {{ctrl.drink.strMeasure5}}</p>
-          <p ng-if="ctrl.drink.strIngredient6 !== null || ctrl.drink.strMeasure6 !== null">{{ctrl.drink.strIngredient6}}: {{ctrl.drink.strMeasure6}}</p>
-          <p ng-if="ctrl.drink.strIngredient7 !== null || ctrl.drink.strMeasure7 !== null">{{ctrl.drink.strIngredient7}}: {{ctrl.drink.strMeasure7}}</p>
-          <p ng-if="ctrl.drink.strIngredient8 !== null || ctrl.drink.strMeasure8 !== null">{{ctrl.drink.strIngredient8}}: {{ctrl.drink.strMeasure8}}</p>
-          <p ng-if="ctrl.drink.strIngredient9 !== null || ctrl.drink.strMeasure9 !== null">{{ctrl.drink.strIngredient9}}: {{ctrl.drink.strMeasure9}}</p>
-          <p ng-if="ctrl.drink.strIngredient10 !== null || ctrl.drink.strMeasure10 !== null">{{ctrl.drink.strIngredient10}}: {{ctrl.drink.strMeasure10}}</p>
-          <p ng-if="ctrl.drink.strIngredient11 !== null || ctrl.drink.strMeasure11 !== null">{{ctrl.drink.strIngredient11}}: {{ctrl.drink.strMeasure11}}</p>
-          <p ng-if="ctrl.drink.strIngredient12 !== null || ctrl.drink.strMeasure12 !== null">{{ctrl.drink.strIngredient12}}: {{ctrl.drink.strMeasure12}}</p>
-          <p ng-if="ctrl.drink.strIngredient13 !== null || ctrl.drink.strMeasure13 !== null">{{ctrl.drink.strIngredient13}}: {{ctrl.drink.strMeasure13}}</p>
-          <p ng-if="ctrl.drink.strIngredient14 !== null || ctrl.drink.strMeasure14 !== null">{{ctrl.drink.strIngredient14}}: {{ctrl.drink.strMeasure14}}</p>
-          <p ng-if="ctrl.drink.strIngredient15 !== null || ctrl.drink.strMeasure15 !== null">{{ctrl.drink.strIngredient15}}: {{ctrl.drink.strMeasure15}}</p>
-        </div>
-        <h3>Instructions:</h3>
+          <h5>Ingredients:</h5>
+          <p><span ng-if="(ctrl.drink.strIngredient1 !== null && ctrl.drink.strIngredient1 !== '')">{{ctrl.drink.strIngredient1}}</span><span ng-if="(ctrl.drink.strMeasure1 !== null && ctrl.drink.strMeasure1 !=='')">: {{ctrl.drink.strMeasure1}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient2 !== null && ctrl.drink.strIngredient2 !== '')">{{ctrl.drink.strIngredient2}}</span><span ng-if="(ctrl.drink.strMeasure2 !== null && ctrl.drink.strMeasure2 !=='')">: {{ctrl.drink.strMeasure2}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient3 !== null && ctrl.drink.strIngredient1 !== '')">{{ctrl.drink.strIngredient3}}</span><span ng-if="(ctrl.drink.strMeasure3 !== null && ctrl.drink.strMeasure1 !=='')">: {{ctrl.drink.strMeasure3}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient4 !== null && ctrl.drink.strIngredient4 !== '')">{{ctrl.drink.strIngredient4}}</span><span ng-if="(ctrl.drink.strMeasure4 !== null && ctrl.drink.strMeasure4 !=='')">: {{ctrl.drink.strMeasure4}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient5 !== null && ctrl.drink.strIngredient5 !== '')">{{ctrl.drink.strIngredient5}}</span><span ng-if="(ctrl.drink.strMeasure5 !== null && ctrl.drink.strMeasure5 !=='')">: {{ctrl.drink.strMeasure5}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient6 !== null && ctrl.drink.strIngredient6 !== '')">{{ctrl.drink.strIngredient6}}</span><span ng-if="(ctrl.drink.strMeasure6 !== null && ctrl.drink.strMeasure6 !=='')">: {{ctrl.drink.strMeasure6}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient7 !== null && ctrl.drink.strIngredient7 !== '')">{{ctrl.drink.strIngredient7}}</span><span ng-if="(ctrl.drink.strMeasure7 !== null && ctrl.drink.strMeasure7 !=='')">: {{ctrl.drink.strMeasure7}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient8 !== null && ctrl.drink.strIngredient8 !== '')">{{ctrl.drink.strIngredient8}}</span><span ng-if="(ctrl.drink.strMeasure8 !== null && ctrl.drink.strMeasure8 !=='')">: {{ctrl.drink.strMeasure8}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient9 !== null && ctrl.drink.strIngredient9 !== '')">{{ctrl.drink.strIngredient9}}</span><span ng-if="(ctrl.drink.strMeasure9 !== null && ctrl.drink.strMeasure9 !=='')">: {{ctrl.drink.strMeasure9}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient10 !== null && ctrl.drink.strIngredient10 !== '')">{{ctrl.drink.strIngredient10}}</span><span ng-if="(ctrl.drink.strMeasure10 !== null && ctrl.drink.strMeasure10 !=='')">: {{ctrl.drink.strMeasure10}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient11 !== null && ctrl.drink.strIngredient11 !== '')">{{ctrl.drink.strIngredient11}}</span><span ng-if="(ctrl.drink.strMeasure11 !== null && ctrl.drink.strMeasure11 !=='')">: {{ctrl.drink.strMeasure11}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient12 !== null && ctrl.drink.strIngredient12 !== '')">{{ctrl.drink.strIngredient12}}</span><span ng-if="(ctrl.drink.strMeasure12 !== null && ctrl.drink.strMeasure12 !=='')">: {{ctrl.drink.strMeasure12}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient13 !== null && ctrl.drink.strIngredient13 !== '')">{{ctrl.drink.strIngredient13}}</span><span ng-if="(ctrl.drink.strMeasure13 !== null && ctrl.drink.strMeasure13 !=='')">: {{ctrl.drink.strMeasure13}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient14 !== null && ctrl.drink.strIngredient14 !== '')">{{ctrl.drink.strIngredient14}}</span><span ng-if="(ctrl.drink.strMeasure14 !== null && ctrl.drink.strMeasure14 !=='')">: {{ctrl.drink.strMeasure14}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient15 !== null && ctrl.drink.strIngredient15 !== '')">{{ctrl.drink.strIngredient15}}</span><span ng-if="(ctrl.drink.strMeasure15 !== null && ctrl.drink.strMeasure15 !=='')">: {{ctrl.drink.strMeasure15}}</span></p>
+        </div><br>
+        <h5>Instructions:</h5>
           <p class="instructions">{{ctrl.drink.strInstructions}}</p><br>
+        <p ng-if="ctrl.loggedInUser === false" style="margin-bottom: 5px;"><small>Sign up or log in to save this drink</small></p>
         <form ng-submit="ctrl.saveDrink(drink)">
           <input ng-if="ctrl.loggedInUser !== false" type="submit" value="Save Drink">
         </form>
@@ -102,28 +104,29 @@
     <!-- TEQUILA Drink Modal -->
     <div ng-if="ctrl.modal === true" id="drinkModal">
       <div class="showDrink">
-        <h1>{{ctrl.drink.strDrink}}</h1>
-        <img src="{{ctrl.drink.strDrinkThumb}}" alt="">
+        <h2>{{ctrl.drink.strDrink}}</h2>
+        <img src="{{ctrl.drink.strDrinkThumb}}" alt=""><br>
         <div class="ingredients">
-          <h3>Ingredients:</h3>
-          <p ng-if="ctrl.drink.strIngredient1 !== null || ctrl.drink.strMeasure1 !== null">{{ctrl.drink.strIngredient1}}: {{ctrl.drink.strMeasure1}}</p>
-          <p ng-if="ctrl.drink.strIngredient2 !== null || ctrl.drink.strMeasure2 !== null">{{ctrl.drink.strIngredient2}}: {{ctrl.drink.strMeasure2}}</p>
-          <p ng-if="ctrl.drink.strIngredient3 !== null || ctrl.drink.strMeasure3 !== null">{{ctrl.drink.strIngredient3}}: {{ctrl.drink.strMeasure3}}</p>
-          <p ng-if="ctrl.drink.strIngredient4 !== null || ctrl.drink.strMeasure4 !== null">{{ctrl.drink.strIngredient4}}: {{ctrl.drink.strMeasure4}}</p>
-          <p ng-if="ctrl.drink.strIngredient5 !== null || ctrl.drink.strMeasure5 !== null">{{ctrl.drink.strIngredient5}}: {{ctrl.drink.strMeasure5}}</p>
-          <p ng-if="ctrl.drink.strIngredient6 !== null || ctrl.drink.strMeasure6 !== null">{{ctrl.drink.strIngredient6}}: {{ctrl.drink.strMeasure6}}</p>
-          <p ng-if="ctrl.drink.strIngredient7 !== null || ctrl.drink.strMeasure7 !== null">{{ctrl.drink.strIngredient7}}: {{ctrl.drink.strMeasure7}}</p>
-          <p ng-if="ctrl.drink.strIngredient8 !== null || ctrl.drink.strMeasure8 !== null">{{ctrl.drink.strIngredient8}}: {{ctrl.drink.strMeasure8}}</p>
-          <p ng-if="ctrl.drink.strIngredient9 !== null || ctrl.drink.strMeasure9 !== null">{{ctrl.drink.strIngredient9}}: {{ctrl.drink.strMeasure9}}</p>
-          <p ng-if="ctrl.drink.strIngredient10 !== null || ctrl.drink.strMeasure10 !== null">{{ctrl.drink.strIngredient10}}: {{ctrl.drink.strMeasure10}}</p>
-          <p ng-if="ctrl.drink.strIngredient11 !== null || ctrl.drink.strMeasure11 !== null">{{ctrl.drink.strIngredient11}}: {{ctrl.drink.strMeasure11}}</p>
-          <p ng-if="ctrl.drink.strIngredient12 !== null || ctrl.drink.strMeasure12 !== null">{{ctrl.drink.strIngredient12}}: {{ctrl.drink.strMeasure12}}</p>
-          <p ng-if="ctrl.drink.strIngredient13 !== null || ctrl.drink.strMeasure13 !== null">{{ctrl.drink.strIngredient13}}: {{ctrl.drink.strMeasure13}}</p>
-          <p ng-if="ctrl.drink.strIngredient14 !== null || ctrl.drink.strMeasure14 !== null">{{ctrl.drink.strIngredient14}}: {{ctrl.drink.strMeasure14}}</p>
-          <p ng-if="ctrl.drink.strIngredient15 !== null || ctrl.drink.strMeasure15 !== null">{{ctrl.drink.strIngredient15}}: {{ctrl.drink.strMeasure15}}</p>
-        </div>
-        <h3>Instructions:</h3>
+          <h5>Ingredients:</h5>
+          <p><span ng-if="(ctrl.drink.strIngredient1 !== null && ctrl.drink.strIngredient1 !== '')">{{ctrl.drink.strIngredient1}}</span><span ng-if="(ctrl.drink.strMeasure1 !== null && ctrl.drink.strMeasure1 !=='')">: {{ctrl.drink.strMeasure1}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient2 !== null && ctrl.drink.strIngredient2 !== '')">{{ctrl.drink.strIngredient2}}</span><span ng-if="(ctrl.drink.strMeasure2 !== null && ctrl.drink.strMeasure2 !=='')">: {{ctrl.drink.strMeasure2}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient3 !== null && ctrl.drink.strIngredient1 !== '')">{{ctrl.drink.strIngredient3}}</span><span ng-if="(ctrl.drink.strMeasure3 !== null && ctrl.drink.strMeasure1 !=='')">: {{ctrl.drink.strMeasure3}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient4 !== null && ctrl.drink.strIngredient4 !== '')">{{ctrl.drink.strIngredient4}}</span><span ng-if="(ctrl.drink.strMeasure4 !== null && ctrl.drink.strMeasure4 !=='')">: {{ctrl.drink.strMeasure4}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient5 !== null && ctrl.drink.strIngredient5 !== '')">{{ctrl.drink.strIngredient5}}</span><span ng-if="(ctrl.drink.strMeasure5 !== null && ctrl.drink.strMeasure5 !=='')">: {{ctrl.drink.strMeasure5}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient6 !== null && ctrl.drink.strIngredient6 !== '')">{{ctrl.drink.strIngredient6}}</span><span ng-if="(ctrl.drink.strMeasure6 !== null && ctrl.drink.strMeasure6 !=='')">: {{ctrl.drink.strMeasure6}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient7 !== null && ctrl.drink.strIngredient7 !== '')">{{ctrl.drink.strIngredient7}}</span><span ng-if="(ctrl.drink.strMeasure7 !== null && ctrl.drink.strMeasure7 !=='')">: {{ctrl.drink.strMeasure7}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient8 !== null && ctrl.drink.strIngredient8 !== '')">{{ctrl.drink.strIngredient8}}</span><span ng-if="(ctrl.drink.strMeasure8 !== null && ctrl.drink.strMeasure8 !=='')">: {{ctrl.drink.strMeasure8}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient9 !== null && ctrl.drink.strIngredient9 !== '')">{{ctrl.drink.strIngredient9}}</span><span ng-if="(ctrl.drink.strMeasure9 !== null && ctrl.drink.strMeasure9 !=='')">: {{ctrl.drink.strMeasure9}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient10 !== null && ctrl.drink.strIngredient10 !== '')">{{ctrl.drink.strIngredient10}}</span><span ng-if="(ctrl.drink.strMeasure10 !== null && ctrl.drink.strMeasure10 !=='')">: {{ctrl.drink.strMeasure10}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient11 !== null && ctrl.drink.strIngredient11 !== '')">{{ctrl.drink.strIngredient11}}</span><span ng-if="(ctrl.drink.strMeasure11 !== null && ctrl.drink.strMeasure11 !=='')">: {{ctrl.drink.strMeasure11}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient12 !== null && ctrl.drink.strIngredient12 !== '')">{{ctrl.drink.strIngredient12}}</span><span ng-if="(ctrl.drink.strMeasure12 !== null && ctrl.drink.strMeasure12 !=='')">: {{ctrl.drink.strMeasure12}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient13 !== null && ctrl.drink.strIngredient13 !== '')">{{ctrl.drink.strIngredient13}}</span><span ng-if="(ctrl.drink.strMeasure13 !== null && ctrl.drink.strMeasure13 !=='')">: {{ctrl.drink.strMeasure13}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient14 !== null && ctrl.drink.strIngredient14 !== '')">{{ctrl.drink.strIngredient14}}</span><span ng-if="(ctrl.drink.strMeasure14 !== null && ctrl.drink.strMeasure14 !=='')">: {{ctrl.drink.strMeasure14}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient15 !== null && ctrl.drink.strIngredient15 !== '')">{{ctrl.drink.strIngredient15}}</span><span ng-if="(ctrl.drink.strMeasure15 !== null && ctrl.drink.strMeasure15 !=='')">: {{ctrl.drink.strMeasure15}}</span></p>
+        </div><br>
+        <h5>Instructions:</h5>
           <p class="instructions">{{ctrl.drink.strInstructions}}</p><br>
+          <p ng-if="ctrl.loggedInUser === false" style="margin-bottom: 5px;"><small>Sign up or log in to save this drink</small></p>
         <form ng-submit="ctrl.saveDrink(drink)">
           <input ng-if="ctrl.loggedInUser !== false" type="submit" value="Save Drink">
         </form>
@@ -141,28 +144,29 @@
     <!-- RUM Drink Modal -->
     <div ng-if="ctrl.modal === true" id="drinkModal">
       <div class="showDrink">
-        <h1>{{ctrl.drink.strDrink}}</h1>
-        <img src="{{ctrl.drink.strDrinkThumb}}" alt="">
+        <h2>{{ctrl.drink.strDrink}}</h2>
+        <img src="{{ctrl.drink.strDrinkThumb}}" alt=""><br>
         <div class="ingredients">
-          <h3>Ingredients:</h3>
-          <p ng-if="ctrl.drink.strIngredient1 !== null || ctrl.drink.strMeasure1 !== null">{{ctrl.drink.strIngredient1}}: {{ctrl.drink.strMeasure1}}</p>
-          <p ng-if="ctrl.drink.strIngredient2 !== null || ctrl.drink.strMeasure2 !== null">{{ctrl.drink.strIngredient2}}: {{ctrl.drink.strMeasure2}}</p>
-          <p ng-if="ctrl.drink.strIngredient3 !== null || ctrl.drink.strMeasure3 !== null">{{ctrl.drink.strIngredient3}}: {{ctrl.drink.strMeasure3}}</p>
-          <p ng-if="ctrl.drink.strIngredient4 !== null || ctrl.drink.strMeasure4 !== null">{{ctrl.drink.strIngredient4}}: {{ctrl.drink.strMeasure4}}</p>
-          <p ng-if="ctrl.drink.strIngredient5 !== null || ctrl.drink.strMeasure5 !== null">{{ctrl.drink.strIngredient5}}: {{ctrl.drink.strMeasure5}}</p>
-          <p ng-if="ctrl.drink.strIngredient6 !== null || ctrl.drink.strMeasure6 !== null">{{ctrl.drink.strIngredient6}}: {{ctrl.drink.strMeasure6}}</p>
-          <p ng-if="ctrl.drink.strIngredient7 !== null || ctrl.drink.strMeasure7 !== null">{{ctrl.drink.strIngredient7}}: {{ctrl.drink.strMeasure7}}</p>
-          <p ng-if="ctrl.drink.strIngredient8 !== null || ctrl.drink.strMeasure8 !== null">{{ctrl.drink.strIngredient8}}: {{ctrl.drink.strMeasure8}}</p>
-          <p ng-if="ctrl.drink.strIngredient9 !== null || ctrl.drink.strMeasure9 !== null">{{ctrl.drink.strIngredient9}}: {{ctrl.drink.strMeasure9}}</p>
-          <p ng-if="ctrl.drink.strIngredient10 !== null || ctrl.drink.strMeasure10 !== null">{{ctrl.drink.strIngredient10}}: {{ctrl.drink.strMeasure10}}</p>
-          <p ng-if="ctrl.drink.strIngredient11 !== null || ctrl.drink.strMeasure11 !== null">{{ctrl.drink.strIngredient11}}: {{ctrl.drink.strMeasure11}}</p>
-          <p ng-if="ctrl.drink.strIngredient12 !== null || ctrl.drink.strMeasure12 !== null">{{ctrl.drink.strIngredient12}}: {{ctrl.drink.strMeasure12}}</p>
-          <p ng-if="ctrl.drink.strIngredient13 !== null || ctrl.drink.strMeasure13 !== null">{{ctrl.drink.strIngredient13}}: {{ctrl.drink.strMeasure13}}</p>
-          <p ng-if="ctrl.drink.strIngredient14 !== null || ctrl.drink.strMeasure14 !== null">{{ctrl.drink.strIngredient14}}: {{ctrl.drink.strMeasure14}}</p>
-          <p ng-if="ctrl.drink.strIngredient15 !== null || ctrl.drink.strMeasure15 !== null">{{ctrl.drink.strIngredient15}}: {{ctrl.drink.strMeasure15}}</p>
-        </div>
-        <h3>Instructions:</h3>
+          <h5>Ingredients:</h5>
+          <p><span ng-if="(ctrl.drink.strIngredient1 !== null && ctrl.drink.strIngredient1 !== '')">{{ctrl.drink.strIngredient1}}</span><span ng-if="(ctrl.drink.strMeasure1 !== null && ctrl.drink.strMeasure1 !=='')">: {{ctrl.drink.strMeasure1}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient2 !== null && ctrl.drink.strIngredient2 !== '')">{{ctrl.drink.strIngredient2}}</span><span ng-if="(ctrl.drink.strMeasure2 !== null && ctrl.drink.strMeasure2 !=='')">: {{ctrl.drink.strMeasure2}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient3 !== null && ctrl.drink.strIngredient1 !== '')">{{ctrl.drink.strIngredient3}}</span><span ng-if="(ctrl.drink.strMeasure3 !== null && ctrl.drink.strMeasure1 !=='')">: {{ctrl.drink.strMeasure3}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient4 !== null && ctrl.drink.strIngredient4 !== '')">{{ctrl.drink.strIngredient4}}</span><span ng-if="(ctrl.drink.strMeasure4 !== null && ctrl.drink.strMeasure4 !=='')">: {{ctrl.drink.strMeasure4}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient5 !== null && ctrl.drink.strIngredient5 !== '')">{{ctrl.drink.strIngredient5}}</span><span ng-if="(ctrl.drink.strMeasure5 !== null && ctrl.drink.strMeasure5 !=='')">: {{ctrl.drink.strMeasure5}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient6 !== null && ctrl.drink.strIngredient6 !== '')">{{ctrl.drink.strIngredient6}}</span><span ng-if="(ctrl.drink.strMeasure6 !== null && ctrl.drink.strMeasure6 !=='')">: {{ctrl.drink.strMeasure6}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient7 !== null && ctrl.drink.strIngredient7 !== '')">{{ctrl.drink.strIngredient7}}</span><span ng-if="(ctrl.drink.strMeasure7 !== null && ctrl.drink.strMeasure7 !=='')">: {{ctrl.drink.strMeasure7}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient8 !== null && ctrl.drink.strIngredient8 !== '')">{{ctrl.drink.strIngredient8}}</span><span ng-if="(ctrl.drink.strMeasure8 !== null && ctrl.drink.strMeasure8 !=='')">: {{ctrl.drink.strMeasure8}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient9 !== null && ctrl.drink.strIngredient9 !== '')">{{ctrl.drink.strIngredient9}}</span><span ng-if="(ctrl.drink.strMeasure9 !== null && ctrl.drink.strMeasure9 !=='')">: {{ctrl.drink.strMeasure9}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient10 !== null && ctrl.drink.strIngredient10 !== '')">{{ctrl.drink.strIngredient10}}</span><span ng-if="(ctrl.drink.strMeasure10 !== null && ctrl.drink.strMeasure10 !=='')">: {{ctrl.drink.strMeasure10}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient11 !== null && ctrl.drink.strIngredient11 !== '')">{{ctrl.drink.strIngredient11}}</span><span ng-if="(ctrl.drink.strMeasure11 !== null && ctrl.drink.strMeasure11 !=='')">: {{ctrl.drink.strMeasure11}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient12 !== null && ctrl.drink.strIngredient12 !== '')">{{ctrl.drink.strIngredient12}}</span><span ng-if="(ctrl.drink.strMeasure12 !== null && ctrl.drink.strMeasure12 !=='')">: {{ctrl.drink.strMeasure12}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient13 !== null && ctrl.drink.strIngredient13 !== '')">{{ctrl.drink.strIngredient13}}</span><span ng-if="(ctrl.drink.strMeasure13 !== null && ctrl.drink.strMeasure13 !=='')">: {{ctrl.drink.strMeasure13}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient14 !== null && ctrl.drink.strIngredient14 !== '')">{{ctrl.drink.strIngredient14}}</span><span ng-if="(ctrl.drink.strMeasure14 !== null && ctrl.drink.strMeasure14 !=='')">: {{ctrl.drink.strMeasure14}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient15 !== null && ctrl.drink.strIngredient15 !== '')">{{ctrl.drink.strIngredient15}}</span><span ng-if="(ctrl.drink.strMeasure15 !== null && ctrl.drink.strMeasure15 !=='')">: {{ctrl.drink.strMeasure15}}</span></p>
+        </div><br>
+        <h5>Instructions:</h5>
           <p class="instructions">{{ctrl.drink.strInstructions}}</p><br>
+          <p ng-if="ctrl.loggedInUser === false" style="margin-bottom: 5px;"><small>Sign up or log in to save this drink</small></p>
         <form ng-submit="ctrl.saveDrink(drink)">
           <input ng-if="ctrl.loggedInUser !== false" type="submit" value="Save Drink">
         </form>
@@ -180,28 +184,29 @@
     <!-- GIN Drink Modal -->
     <div ng-if="ctrl.modal === true" id="drinkModal">
       <div class="showDrink">
-        <h1>{{ctrl.drink.strDrink}}</h1>
-        <img src="{{ctrl.drink.strDrinkThumb}}" alt="">
+        <h2>{{ctrl.drink.strDrink}}</h2>
+        <img src="{{ctrl.drink.strDrinkThumb}}" alt=""><br>
         <div class="ingredients">
-          <h3>Ingredients:</h3>
-          <p ng-if="ctrl.drink.strIngredient1 !== null || ctrl.drink.strMeasure1 !== null">{{ctrl.drink.strIngredient1}}: {{ctrl.drink.strMeasure1}}</p>
-          <p ng-if="ctrl.drink.strIngredient2 !== null || ctrl.drink.strMeasure2 !== null">{{ctrl.drink.strIngredient2}}: {{ctrl.drink.strMeasure2}}</p>
-          <p ng-if="ctrl.drink.strIngredient3 !== null || ctrl.drink.strMeasure3 !== null">{{ctrl.drink.strIngredient3}}: {{ctrl.drink.strMeasure3}}</p>
-          <p ng-if="ctrl.drink.strIngredient4 !== null || ctrl.drink.strMeasure4 !== null">{{ctrl.drink.strIngredient4}}: {{ctrl.drink.strMeasure4}}</p>
-          <p ng-if="ctrl.drink.strIngredient5 !== null || ctrl.drink.strMeasure5 !== null">{{ctrl.drink.strIngredient5}}: {{ctrl.drink.strMeasure5}}</p>
-          <p ng-if="ctrl.drink.strIngredient6 !== null || ctrl.drink.strMeasure6 !== null">{{ctrl.drink.strIngredient6}}: {{ctrl.drink.strMeasure6}}</p>
-          <p ng-if="ctrl.drink.strIngredient7 !== null || ctrl.drink.strMeasure7 !== null">{{ctrl.drink.strIngredient7}}: {{ctrl.drink.strMeasure7}}</p>
-          <p ng-if="ctrl.drink.strIngredient8 !== null || ctrl.drink.strMeasure8 !== null">{{ctrl.drink.strIngredient8}}: {{ctrl.drink.strMeasure8}}</p>
-          <p ng-if="ctrl.drink.strIngredient9 !== null || ctrl.drink.strMeasure9 !== null">{{ctrl.drink.strIngredient9}}: {{ctrl.drink.strMeasure9}}</p>
-          <p ng-if="ctrl.drink.strIngredient10 !== null || ctrl.drink.strMeasure10 !== null">{{ctrl.drink.strIngredient10}}: {{ctrl.drink.strMeasure10}}</p>
-          <p ng-if="ctrl.drink.strIngredient11 !== null || ctrl.drink.strMeasure11 !== null">{{ctrl.drink.strIngredient11}}: {{ctrl.drink.strMeasure11}}</p>
-          <p ng-if="ctrl.drink.strIngredient12 !== null || ctrl.drink.strMeasure12 !== null">{{ctrl.drink.strIngredient12}}: {{ctrl.drink.strMeasure12}}</p>
-          <p ng-if="ctrl.drink.strIngredient13 !== null || ctrl.drink.strMeasure13 !== null">{{ctrl.drink.strIngredient13}}: {{ctrl.drink.strMeasure13}}</p>
-          <p ng-if="ctrl.drink.strIngredient14 !== null || ctrl.drink.strMeasure14 !== null">{{ctrl.drink.strIngredient14}}: {{ctrl.drink.strMeasure14}}</p>
-          <p ng-if="ctrl.drink.strIngredient15 !== null || ctrl.drink.strMeasure15 !== null">{{ctrl.drink.strIngredient15}}: {{ctrl.drink.strMeasure15}}</p>
-        </div>
-        <h3>Instructions:</h3>
+          <h5>Ingredients:</h5>
+          <p><span ng-if="(ctrl.drink.strIngredient1 !== null && ctrl.drink.strIngredient1 !== '')">{{ctrl.drink.strIngredient1}}</span><span ng-if="(ctrl.drink.strMeasure1 !== null && ctrl.drink.strMeasure1 !=='')">: {{ctrl.drink.strMeasure1}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient2 !== null && ctrl.drink.strIngredient2 !== '')">{{ctrl.drink.strIngredient2}}</span><span ng-if="(ctrl.drink.strMeasure2 !== null && ctrl.drink.strMeasure2 !=='')">: {{ctrl.drink.strMeasure2}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient3 !== null && ctrl.drink.strIngredient1 !== '')">{{ctrl.drink.strIngredient3}}</span><span ng-if="(ctrl.drink.strMeasure3 !== null && ctrl.drink.strMeasure1 !=='')">: {{ctrl.drink.strMeasure3}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient4 !== null && ctrl.drink.strIngredient4 !== '')">{{ctrl.drink.strIngredient4}}</span><span ng-if="(ctrl.drink.strMeasure4 !== null && ctrl.drink.strMeasure4 !=='')">: {{ctrl.drink.strMeasure4}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient5 !== null && ctrl.drink.strIngredient5 !== '')">{{ctrl.drink.strIngredient5}}</span><span ng-if="(ctrl.drink.strMeasure5 !== null && ctrl.drink.strMeasure5 !=='')">: {{ctrl.drink.strMeasure5}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient6 !== null && ctrl.drink.strIngredient6 !== '')">{{ctrl.drink.strIngredient6}}</span><span ng-if="(ctrl.drink.strMeasure6 !== null && ctrl.drink.strMeasure6 !=='')">: {{ctrl.drink.strMeasure6}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient7 !== null && ctrl.drink.strIngredient7 !== '')">{{ctrl.drink.strIngredient7}}</span><span ng-if="(ctrl.drink.strMeasure7 !== null && ctrl.drink.strMeasure7 !=='')">: {{ctrl.drink.strMeasure7}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient8 !== null && ctrl.drink.strIngredient8 !== '')">{{ctrl.drink.strIngredient8}}</span><span ng-if="(ctrl.drink.strMeasure8 !== null && ctrl.drink.strMeasure8 !=='')">: {{ctrl.drink.strMeasure8}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient9 !== null && ctrl.drink.strIngredient9 !== '')">{{ctrl.drink.strIngredient9}}</span><span ng-if="(ctrl.drink.strMeasure9 !== null && ctrl.drink.strMeasure9 !=='')">: {{ctrl.drink.strMeasure9}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient10 !== null && ctrl.drink.strIngredient10 !== '')">{{ctrl.drink.strIngredient10}}</span><span ng-if="(ctrl.drink.strMeasure10 !== null && ctrl.drink.strMeasure10 !=='')">: {{ctrl.drink.strMeasure10}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient11 !== null && ctrl.drink.strIngredient11 !== '')">{{ctrl.drink.strIngredient11}}</span><span ng-if="(ctrl.drink.strMeasure11 !== null && ctrl.drink.strMeasure11 !=='')">: {{ctrl.drink.strMeasure11}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient12 !== null && ctrl.drink.strIngredient12 !== '')">{{ctrl.drink.strIngredient12}}</span><span ng-if="(ctrl.drink.strMeasure12 !== null && ctrl.drink.strMeasure12 !=='')">: {{ctrl.drink.strMeasure12}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient13 !== null && ctrl.drink.strIngredient13 !== '')">{{ctrl.drink.strIngredient13}}</span><span ng-if="(ctrl.drink.strMeasure13 !== null && ctrl.drink.strMeasure13 !=='')">: {{ctrl.drink.strMeasure13}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient14 !== null && ctrl.drink.strIngredient14 !== '')">{{ctrl.drink.strIngredient14}}</span><span ng-if="(ctrl.drink.strMeasure14 !== null && ctrl.drink.strMeasure14 !=='')">: {{ctrl.drink.strMeasure14}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient15 !== null && ctrl.drink.strIngredient15 !== '')">{{ctrl.drink.strIngredient15}}</span><span ng-if="(ctrl.drink.strMeasure15 !== null && ctrl.drink.strMeasure15 !=='')">: {{ctrl.drink.strMeasure15}}</span></p>
+        </div><br>
+        <h5>Instructions:</h5>
           <p class="instructions">{{ctrl.drink.strInstructions}}</p><br>
+          <p ng-if="ctrl.loggedInUser === false" style="margin-bottom: 5px;"><small>Sign up or log in to save this drink</small></p>
         <form ng-submit="ctrl.saveDrink(drink)">
           <input ng-if="ctrl.loggedInUser !== false" type="submit" value="Save Drink">
         </form>
@@ -219,32 +224,33 @@
     <!-- VODKA Drink Modal -->
     <div ng-if="ctrl.modal === true" id="drinkModal">
       <div class="showDrink">
-        <h1>{{ctrl.drink.strDrink}}</h1>
-        <img src="{{ctrl.drink.strDrinkThumb}}" alt="">
+        <h2>{{ctrl.drink.strDrink}}</h2>
+        <img src="{{ctrl.drink.strDrinkThumb}}" alt=""><br>
         <div class="ingredients">
-          <h3>Ingredients:</h3>
-          <p ng-if="ctrl.drink.strIngredient1 !== null || ctrl.drink.strMeasure1 !== null">{{ctrl.drink.strIngredient1}}: {{ctrl.drink.strMeasure1}}</p>
-          <p ng-if="ctrl.drink.strIngredient2 !== null || ctrl.drink.strMeasure2 !== null">{{ctrl.drink.strIngredient2}}: {{ctrl.drink.strMeasure2}}</p>
-          <p ng-if="ctrl.drink.strIngredient3 !== null || ctrl.drink.strMeasure3 !== null">{{ctrl.drink.strIngredient3}}: {{ctrl.drink.strMeasure3}}</p>
-          <p ng-if="ctrl.drink.strIngredient4 !== null || ctrl.drink.strMeasure4 !== null">{{ctrl.drink.strIngredient4}}: {{ctrl.drink.strMeasure4}}</p>
-          <p ng-if="ctrl.drink.strIngredient5 !== null || ctrl.drink.strMeasure5 !== null">{{ctrl.drink.strIngredient5}}: {{ctrl.drink.strMeasure5}}</p>
-          <p ng-if="ctrl.drink.strIngredient6 !== null || ctrl.drink.strMeasure6 !== null">{{ctrl.drink.strIngredient6}}: {{ctrl.drink.strMeasure6}}</p>
-          <p ng-if="ctrl.drink.strIngredient7 !== null || ctrl.drink.strMeasure7 !== null">{{ctrl.drink.strIngredient7}}: {{ctrl.drink.strMeasure7}}</p>
-          <p ng-if="ctrl.drink.strIngredient8 !== null || ctrl.drink.strMeasure8 !== null">{{ctrl.drink.strIngredient8}}: {{ctrl.drink.strMeasure8}}</p>
-          <p ng-if="ctrl.drink.strIngredient9 !== null || ctrl.drink.strMeasure9 !== null">{{ctrl.drink.strIngredient9}}: {{ctrl.drink.strMeasure9}}</p>
-          <p ng-if="ctrl.drink.strIngredient10 !== null || ctrl.drink.strMeasure10 !== null">{{ctrl.drink.strIngredient10}}: {{ctrl.drink.strMeasure10}}</p>
-          <p ng-if="ctrl.drink.strIngredient11 !== null || ctrl.drink.strMeasure11 !== null">{{ctrl.drink.strIngredient11}}: {{ctrl.drink.strMeasure11}}</p>
-          <p ng-if="ctrl.drink.strIngredient12 !== null || ctrl.drink.strMeasure12 !== null">{{ctrl.drink.strIngredient12}}: {{ctrl.drink.strMeasure12}}</p>
-          <p ng-if="ctrl.drink.strIngredient13 !== null || ctrl.drink.strMeasure13 !== null">{{ctrl.drink.strIngredient13}}: {{ctrl.drink.strMeasure13}}</p>
-          <p ng-if="ctrl.drink.strIngredient14 !== null || ctrl.drink.strMeasure14 !== null">{{ctrl.drink.strIngredient14}}: {{ctrl.drink.strMeasure14}}</p>
-          <p ng-if="ctrl.drink.strIngredient15 !== null || ctrl.drink.strMeasure15 !== null">{{ctrl.drink.strIngredient15}}: {{ctrl.drink.strMeasure15}}</p>
-        </div>
-        <h3>Instructions:</h3>
+          <h5>Ingredients:</h5>
+          <p><span ng-if="(ctrl.drink.strIngredient1 !== null && ctrl.drink.strIngredient1 !== '')">{{ctrl.drink.strIngredient1}}</span><span ng-if="(ctrl.drink.strMeasure1 !== null && ctrl.drink.strMeasure1 !=='')">: {{ctrl.drink.strMeasure1}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient2 !== null && ctrl.drink.strIngredient2 !== '')">{{ctrl.drink.strIngredient2}}</span><span ng-if="(ctrl.drink.strMeasure2 !== null && ctrl.drink.strMeasure2 !=='')">: {{ctrl.drink.strMeasure2}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient3 !== null && ctrl.drink.strIngredient1 !== '')">{{ctrl.drink.strIngredient3}}</span><span ng-if="(ctrl.drink.strMeasure3 !== null && ctrl.drink.strMeasure1 !=='')">: {{ctrl.drink.strMeasure3}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient4 !== null && ctrl.drink.strIngredient4 !== '')">{{ctrl.drink.strIngredient4}}</span><span ng-if="(ctrl.drink.strMeasure4 !== null && ctrl.drink.strMeasure4 !=='')">: {{ctrl.drink.strMeasure4}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient5 !== null && ctrl.drink.strIngredient5 !== '')">{{ctrl.drink.strIngredient5}}</span><span ng-if="(ctrl.drink.strMeasure5 !== null && ctrl.drink.strMeasure5 !=='')">: {{ctrl.drink.strMeasure5}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient6 !== null && ctrl.drink.strIngredient6 !== '')">{{ctrl.drink.strIngredient6}}</span><span ng-if="(ctrl.drink.strMeasure6 !== null && ctrl.drink.strMeasure6 !=='')">: {{ctrl.drink.strMeasure6}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient7 !== null && ctrl.drink.strIngredient7 !== '')">{{ctrl.drink.strIngredient7}}</span><span ng-if="(ctrl.drink.strMeasure7 !== null && ctrl.drink.strMeasure7 !=='')">: {{ctrl.drink.strMeasure7}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient8 !== null && ctrl.drink.strIngredient8 !== '')">{{ctrl.drink.strIngredient8}}</span><span ng-if="(ctrl.drink.strMeasure8 !== null && ctrl.drink.strMeasure8 !=='')">: {{ctrl.drink.strMeasure8}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient9 !== null && ctrl.drink.strIngredient9 !== '')">{{ctrl.drink.strIngredient9}}</span><span ng-if="(ctrl.drink.strMeasure9 !== null && ctrl.drink.strMeasure9 !=='')">: {{ctrl.drink.strMeasure9}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient10 !== null && ctrl.drink.strIngredient10 !== '')">{{ctrl.drink.strIngredient10}}</span><span ng-if="(ctrl.drink.strMeasure10 !== null && ctrl.drink.strMeasure10 !=='')">: {{ctrl.drink.strMeasure10}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient11 !== null && ctrl.drink.strIngredient11 !== '')">{{ctrl.drink.strIngredient11}}</span><span ng-if="(ctrl.drink.strMeasure11 !== null && ctrl.drink.strMeasure11 !=='')">: {{ctrl.drink.strMeasure11}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient12 !== null && ctrl.drink.strIngredient12 !== '')">{{ctrl.drink.strIngredient12}}</span><span ng-if="(ctrl.drink.strMeasure12 !== null && ctrl.drink.strMeasure12 !=='')">: {{ctrl.drink.strMeasure12}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient13 !== null && ctrl.drink.strIngredient13 !== '')">{{ctrl.drink.strIngredient13}}</span><span ng-if="(ctrl.drink.strMeasure13 !== null && ctrl.drink.strMeasure13 !=='')">: {{ctrl.drink.strMeasure13}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient14 !== null && ctrl.drink.strIngredient14 !== '')">{{ctrl.drink.strIngredient14}}</span><span ng-if="(ctrl.drink.strMeasure14 !== null && ctrl.drink.strMeasure14 !=='')">: {{ctrl.drink.strMeasure14}}</span></p>
+          <p><span ng-if="(ctrl.drink.strIngredient15 !== null && ctrl.drink.strIngredient15 !== '')">{{ctrl.drink.strIngredient15}}</span><span ng-if="(ctrl.drink.strMeasure15 !== null && ctrl.drink.strMeasure15 !=='')">: {{ctrl.drink.strMeasure15}}</span></p>
+        </div><br>
+        <h5>Instructions:</h5>
           <p class="instructions">{{ctrl.drink.strInstructions}}</p><br>
+          <p ng-if="ctrl.loggedInUser === false" style="margin-bottom: 5px;"><small>Sign up or log in to save this drink</small></p>
         <form ng-submit="ctrl.saveDrink(drink)">
           <input ng-if="ctrl.loggedInUser !== false" type="submit" value="Save Drink">
         </form>
-        <button ng-click="ctrl.closeModal()">Close</button>
+        <button class="button" ng-click="ctrl.closeModal()">Close</button>
       </div>
     </div>
 </ul>
