@@ -388,6 +388,6 @@ app.controller('MainController', ['$http', function($http){
           controller.loggedInUser = response.data
       }
   })
-  console.log(this.loggedInUser);
+  
 
 }]) // END
