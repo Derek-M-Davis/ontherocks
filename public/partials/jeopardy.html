@@ -1,0 +1,22 @@
+<div ng-if="ctrl.showJeopardy">
+    <div ng-controller="JeopardyController as ctrl">
+        <h1>Welcome to Jeopardy!</h1>
+        <!-- Score -->
+        <h2>Score: {{ctrl.score}}</h2>
+        <!-- buttons for answer wrong, right and reset -->
+        <button ng-click="ctrl.toggleDecrease(ctrl.points)">Question Wrong</button>
+        <button ng-click="ctrl.toggleIncrease(ctrl.points)">Question Right</button>
+        <button ng-click="ctrl.reset()">Reset</button><br>
+        <!-- button to generate and show random question -->
+        <div>
+            <button ng-click="ctrl.randomQuestion()">Next Question</button>
+            <h2> Question: {{ctrl.question}}</h2>
+            <h2> Points: {{ctrl.points}}</h2>
+        </div>
+        <!-- toggle to show answer after question is generated -->
+        <div>
+            <button ng-click="ctrl.toggleAnswer()">Answer</button>
+            <h3 ng-show='ctrl.show'>{{ctrl.answer}}</h3>
+        </div>
+    </div>
+</div>

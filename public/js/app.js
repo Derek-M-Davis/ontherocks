@@ -7,7 +7,8 @@ app.controller('MainController', ['$http', function($http){
     this.showRum = null;
     this.showGin = null;
     this.showVodka = null;
-
+    
+    this.showJeopardy = false;
     this.modal = false // Toggle Modal
     this.signUpModal = false // Toggle Sign Up Modal
     this.logInModal = false // Toggle Log In Modal
@@ -38,8 +39,20 @@ app.controller('MainController', ['$http', function($http){
       this.modal = false
     }
 
+    // JEOPARDY TOGGLE GAME
+    this.toggleJeopardy = () => {
+        this.showJeopardy = !this.showJeopardy;
+        this.userSavedDrinks = null;
+        this.showWhiskey = null;
+        this.showTequila = null;
+        this.showRum = null;
+        this.showGin = null;
+        this.showVodka = null;
+    }
+
     // WHISKEY DRINK LIST
     this.toggleWhiskey = () => {
+        this.showJeopardy = null;
         this.showWhiskey = !this.showWhiskey;
         this.showTequila = null;
         this.showRum = null;
@@ -49,6 +62,7 @@ app.controller('MainController', ['$http', function($http){
 
     // TEQUILA DRINK LIST
     this.toggleTequila = () => {
+        this.showJeopardy = null;
         this.showWhiskey = null;
         this.showTequila = !this.showTequila;
         this.showRum = null;
@@ -58,6 +72,7 @@ app.controller('MainController', ['$http', function($http){
 
     // RUM DRINK LIST
     this.toggleRum = () => {
+        this.showJeopardy = null;
         this.showWhiskey = null;
         this.showTequila = null;
         this.showRum = !this.showRum;
@@ -67,6 +82,7 @@ app.controller('MainController', ['$http', function($http){
 
     // GIN DRINK LIST
     this.toggleGin = () => {
+        this.showJeopardy = null;
         this.showWhiskey = null;
         this.showTequila = null;
         this.showRum = null;
@@ -76,6 +92,7 @@ app.controller('MainController', ['$http', function($http){
 
     // VODKA DRINK LIST
     this.toggleVodka = () => {
+        this.showJeopardy = null;
         this.showWhiskey = null;
         this.showTequila = null;
         this.showRum = null;
@@ -238,6 +255,7 @@ app.controller('MainController', ['$http', function($http){
     // TOGGLE SAVED DRINKS
     this.showUserSavedDrinks = () => {
       this.userSavedDrinks = !this.userSavedDrinks
+      this.showJeopardy = null;
       this.showWhiskey = null;
       this.showTequila = null;
       this.showRum = null;
@@ -392,4 +410,49 @@ app.controller('MainController', ['$http', function($http){
   })
 
 
-}]) // END
+}]) 
+
+// JEOPARDY CONTROLLER
+app.controller('JeopardyController',['$http', function($http){
+
+    this.question = '';
+    this.answer = '';
+    this.show = true
+    this.score = 0
+    this.points = 0
+
+// CLICK FOR ANSWER
+    this.toggleAnswer = () => {
+        this.show = !this.show
+    }
+// CLICK FOR CORRECT ANSWER 
+    this.toggleIncrease = (points) => {
+        this.score += points
+    }
+
+    // GET RANDOM QUESTION, POINT VALUE AND ANSWER
+    this.randomQuestion = () => {
+        $http({
+            method: 'GET',
+            url: 'http://jservice.io/api/random'
+        }). then (response => {
+            this.data = response.data
+            console.log(response.data)
+            this.question = this.data[0].question
+            this.answer = this.data[0].answer
+            this.points = this.data[0].value
+        }, error => {
+            console.log(error)
+        }).catch ( err => console.error('catch: ', err))
+        this.show = false
+    }
+    // CLICK FOR WRONG ANSWER
+    this.toggleDecrease = (points) => {
+        this.score -= points
+    }
+    // CLICK FOR SCORE RESET
+    this.reset = () => {
+        this.score = 0
+    }
+}])
+// END
