@@ -1,10 +1,47 @@
 /* ALL PAGES */
+body {
+  background-color: #f6f6f6;
+  color:#420000;
+}
+
+.hero-image {
+  background: url("/images/assorted-alcoholic-drinks-2796105.jpg");
+  height: 500px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  top: 0px;
+  z-index: -1;
+}
+
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #eae9e9;
+  z-index: -1;
+}
+
 nav {
   background: whitesmoke;
+  height: 5%;
+  background: rgba(39, 14, 14, 0.63);
+}
+
+nav > a {
+  color: #eae9e9;
+}
+
+h3 {
+  text-align: center;
+  color: #420000;
 }
 
 #drinkModal, #signupModal, #loginModal {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.8);
   position: fixed;
   top: 0;
   left: 0;
@@ -17,11 +54,14 @@ nav {
   justify-content: center;
   align-items: center;
 }
-
+textarea {
+  height: 50px;
+  width: 200px;
+  margin: auto;
+}
 
 /* SIGN UP / LOG IN */
 .signup, .login {
-  border: 1px solid gold;
   border-radius: 3px;
   background: whitesmoke;
   display: flex;
@@ -70,22 +110,34 @@ ul {
 }
 
 /* All Drinks Lists */
-.listedDrink {
-  border: 1px solid gold;
+.listedDrink, .listedSavedDrink {
+  border-radius: 3px;
+  box-shadow: 3px 3px 3px;
+  background-color: rgba(62,95,115,.3);
   list-style-type: none;
   text-align: center;
   cursor: pointer;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   align-items: center;
-  justify-content: space-around;
-  width: 400px;
-  margin: 5px auto;
+  justify-content: space-between;
+  width: 250px;
+  margin: 10px auto;
 }
-  .listedDrink > img {
+  .listedDrink > img, .listedSavedDrink > img {
+    border-radius: 3px;
     width: 250px;
     height: 250px;
     margin-bottom: 5px;
+  }
+  .listedDrink > h3, .listedSavedDrink > h3 {
+    margin-bottom: 10px;
+    width: 250px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255,255,255,.1);
   }
 
 /* Specific Drink Modal */
@@ -94,27 +146,38 @@ ul {
   border-radius: 3px;
   background-color: whitesmoke;
   text-align: center;
-  width: 500px;
+  width: 400px;
   max-width: 800px;
+  max-height: 800px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: auto;
 }
-  .showDrink > h1, h3, button {
-    margin: 10px 10px;
+  .showDrink > h2 {
+    margin: 20px 10px 10px 5px;
+    flex-wrap: wrap;
   }
   .showDrink > p {
-    margin: 0px 5px;
+    margin: 0px 8px;
   }
   .showDrink > .instructions {
     font-style:italic;
   }
   .showDrink > img {
-    width: 300px;
-    height: 300px;
+    width: 350px;
+    /* height: 300px; */
   }
   .ingredients > p {
     margin-bottom: 1px;
+  }
+  form > input {
+    margin-bottom: 5px;
+  }
+  .showDrink > button {
+    height: 30px;
+    margin-bottom: 5px;
+    border: 1px solid black;
   }
 
 
@@ -131,18 +194,3 @@ h4 {
   justify-content: space-around;
   flex-wrap: wrap;
 }
-
-.listedSavedDrink {
-  border: 1px solid blue;
-  width: 300px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-  .listedSavedDrink > img {
-    width: 150px;
-    height: 150px;
-    margin-bottom: 10px;
-    cursor: pointer;
-  }
