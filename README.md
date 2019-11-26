@@ -4,15 +4,16 @@
 #[Ontherocks App](https://ontherocks.herokuapp.com/)
 
 #### Original Goal:
-> Having an website that is usable on mobile to help those decesion shy people with narrowing their adult beverage choices. After choosing your beverage a seperate tab of news stories, talking point while out with friends, coworkers and strangers to avoid akward silence. If you actually like the people around you and trust them not to drop your phone without a case, a game revolving around the jeopardy api we worked with earlier with a fifteen second timer for each question with a screen flash to another color to signify times up. 
+> Having an website that is usable on mobile to help those decesion shy people with narrowing their adult beverage choices. After choosing your beverage a seperate tab of news stories, talking point while out with friends, coworkers and strangers to avoid akward silence. If you actually like the people around you and trust them not to drop your phone without a case, a game revolving around the jeopardy api we worked with earlier would be an option for additional screen time without sacrificing the inclusion of people around you.
 
 #### Technologies Used
 
-  -MVC Structure
-  -MEAN Stack(MongoDB, Express.js, Angular.js, Node.js)  
-  -ThecocktailDB (https://www.thecocktaildb.com/api.php)
-  -CSS - Bootstrap
-  -Heroku Hosting application and CLI
+-MVC Structure
+-MEAN Stack(MongoDB, Express.js, Angular.js, Node.js)  
+-ThecocktailDB (https://www.thecocktaildb.com/api.php)
+-Jeopardy Api (http://jservice.io/)
+-CSS - Bootstrap
+-Heroku Hosting application and CLI
 
 #### Approach Taken
 >Primary goal was to make a robust interface that is intuative to make the decision process as quick as possible weither you are ordering out or looking for ideas to make at home. Seeding the data with our ajax calls then designing around partials to make the webpage clean and distraction free. 
@@ -28,6 +29,7 @@
 ![Wireframe Image 3]( https://res.cloudinary.com/dcgapn1j0/image/upload/v1574708134/navbar_with_relationship_c2zbmb.png "SignIn/Log Out with Nav Bar")
 ![Wireframe Image 4]( https://res.cloudinary.com/dcgapn1j0/image/upload/v1574709615/img_2811_uhvcsw.jpg "Orginal Home page/Saved Drinks wireframe")
 ![Wireframe Image 5]( https://res.cloudinary.com/dcgapn1j0/image/upload/v1574708777/saved_drink_array_m9qzp6.png "Saved Drinks array with basic layout")
+![Wireframe Image 6]( https://res.cloudinary.com/dcgapn1j0/image/upload/v1574797084/hero_image_and_basic_styling_gme3tq.png "Hero Image and basic styling")
 
 
 #### Goals/Future Plans
