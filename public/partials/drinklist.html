@@ -3,8 +3,8 @@
 <!-- Saved Drink List -->
 <div class="saved" ng-if="ctrl.userSavedDrinks === true" class="yourDrinks">
   <div class="listedSavedDrink" ng-repeat="drink in ctrl.loggedInUser.savedDrinks">
-    <h3>{{drink.strDrink}}</h3>
-    <img src="{{drink.strDrinkThumb}}" alt="" ng-click="ctrl.showSavedDrink(drink)">
+      <img src="{{drink.strDrinkThumb}}" alt="" ng-click="ctrl.showSavedDrink(drink)">
+      <h3>{{drink.strDrink}}</h3>
   </div>
   <!-- Saved Drink Modal -->
   <div ng-if="ctrl.modal === true" id="drinkModal">
@@ -44,22 +44,25 @@
 
 
 <!-- All Drinks Buttons -->
-<h4 ng-if="ctrl.userSavedDrinks === false">All Drinks</h4><br>
+<h4 id="allDrinkText" ng-if="ctrl.userSavedDrinks === false">All Drinks</h4><br>
 <span class="allDrinks" ng-if="ctrl.userSavedDrinks === false">
-  <button ng-click="ctrl.toggleWhiskey()">Whiskey</button>
-  <button ng-click="ctrl.toggleTequila()">Tequila</button>
-  <button ng-click="ctrl.toggleRum()">Rum</button>
-  <button ng-click="ctrl.toggleGin()">Gin</button>
-  <button ng-click="ctrl.toggleVodka()">Vodka</button>
+  <button id="allDrinkBtns" class="btn btn-outline-light btn-lg" ng-click="ctrl.toggleWhiskey()">Whiskey</button>
+  <button id="allDrinkBtns" class="btn btn-outline-light btn-lg" ng-click="ctrl.toggleTequila()">Tequila</button>
+  <button id="allDrinkBtns" class="btn btn-outline-light btn-lg" ng-click="ctrl.toggleRum()">Rum</button>
+  <button id="allDrinkBtns" class="btn btn-outline-light btn-lg" ng-click="ctrl.toggleGin()">Gin</button>
+  <button id="allDrinkBtns" class="btn btn-outline-light btn-lg" ng-click="ctrl.toggleVodka()">Vodka</button>
 </span>
 
 
 <!-- All Drinks -->
 <ul ng-if="ctrl.showWhiskey">
     <!-- WHISKEY Drink List -->
-    <li class="listedDrink" ng-repeat="drink in ctrl.allWhiskeyDrinks" ng-click="ctrl.showDrink(drink)">
-        <h3>{{drink.strDrink}}</h3>
-        <img src="{{drink.strDrinkThumb}}" alt="">
+    <li  ng-repeat="drink in ctrl.allWhiskeyDrinks" ng-click="ctrl.showDrink(drink)">
+        <div class="listedDrink">
+            <img src="{{drink.strDrinkThumb}}" alt="">
+            <h3>{{drink.strDrink}}</h3>
+        </div>
+
     </li>
     <!-- WHISKEY Drink Modal -->
     <div ng-if="ctrl.modal === true" id="drinkModal">
@@ -97,9 +100,11 @@
 
 <ul ng-if="ctrl.showTequila">
     <!-- TEQUILA Drink List -->
-    <li class="listedDrink" ng-repeat="drink in ctrl.allTequilaDrinks" ng-click="ctrl.showDrink(drink)">
-        <h3>{{drink.strDrink}}</h3>
-        <img src="{{drink.strDrinkThumb}}" alt="">
+    <li ng-repeat="drink in ctrl.allTequilaDrinks" ng-click="ctrl.showDrink(drink)">
+        <div class="listedDrink">
+            <img src="{{drink.strDrinkThumb}}" alt="">
+            <h3>{{drink.strDrink}}</h3>
+        </div>
     </li>
     <!-- TEQUILA Drink Modal -->
     <div ng-if="ctrl.modal === true" id="drinkModal">
@@ -137,9 +142,11 @@
 
 <ul ng-if="ctrl.showRum">
     <!-- RUM Drink List -->
-    <li class="listedDrink" ng-repeat="drink in ctrl.allRumDrinks" ng-click="ctrl.showDrink(drink)">
-        <h3>{{drink.strDrink}}</h3>
-        <img src="{{drink.strDrinkThumb}}" alt="">
+    <li ng-repeat="drink in ctrl.allRumDrinks" ng-click="ctrl.showDrink(drink)">
+        <div class="listedDrink">
+            <img src="{{drink.strDrinkThumb}}" alt="">
+            <h3>{{drink.strDrink}}</h3>
+        </div>
     </li>
     <!-- RUM Drink Modal -->
     <div ng-if="ctrl.modal === true" id="drinkModal">
@@ -177,9 +184,11 @@
 
 <ul ng-if="ctrl.showGin">
     <!-- GIN Drink List -->
-    <li class="listedDrink" ng-repeat="drink in ctrl.allGinDrinks" ng-click="ctrl.showDrink(drink)">
-        <h3>{{drink.strDrink}}</h3>
-        <img src="{{drink.strDrinkThumb}}" alt="">
+    <li ng-repeat="drink in ctrl.allGinDrinks" ng-click="ctrl.showDrink(drink)">
+        <div class="listedDrink">
+            <img src="{{drink.strDrinkThumb}}" alt="">
+            <h3>{{drink.strDrink}}</h3>
+        </div>
     </li>
     <!-- GIN Drink Modal -->
     <div ng-if="ctrl.modal === true" id="drinkModal">
@@ -217,9 +226,11 @@
 
 <ul ng-if="ctrl.showVodka">
     <!-- VODKA Drink List -->
-    <li class="listedDrink" ng-repeat="drink in ctrl.allVodkaDrinks" ng-click="ctrl.showDrink(drink)">
-        <h3>{{drink.strDrink}}</h3>
-        <img src="{{drink.strDrinkThumb}}" alt="">
+    <li ng-repeat="drink in ctrl.allVodkaDrinks" ng-click="ctrl.showDrink(drink)">
+        <div class="listedDrink">
+            <img src="{{drink.strDrinkThumb}}" alt="">
+            <h3>{{drink.strDrink}}</h3>
+        </div>
     </li>
     <!-- VODKA Drink Modal -->
     <div ng-if="ctrl.modal === true" id="drinkModal">
