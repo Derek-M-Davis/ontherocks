@@ -3,7 +3,7 @@
   <a href="#" ng-click="ctrl.toggleJeopardy()">Jeopardy</a>
   <h3 ng-if="ctrl.loggedInUser !== false">Welcome {{ctrl.loggedInUser.username}}</h3>
   <a href="#" ng-if="ctrl.loggedInUser !== false" ng-click="ctrl.showUserSavedDrinks(); ctrl.updateUser()">Your Drinks</a>
-  <a href="#" ng-if="ctrl.loggedInUser === false" ng-click="ctrl.logInModal = true">Log In</a>
-  <a href="#" ng-if="ctrl.loggedInUser === false" ng-click="ctrl.signUpModal = true">Sign Up</a>
+  <a href="#" ng-if="ctrl.loggedInUser === false" ng-click="ctrl.logInModal = true; ctrl.signUpModal = false">Log In</a>
+  <a href="#" ng-if="ctrl.loggedInUser === false" ng-click="ctrl.signUpModal = true; ctrl.logInModal = false">Sign Up</a>
   <a href="#" ng-if="ctrl.loggedInUser !== false" ng-click="ctrl.logout()">Log Out</a>
 </nav>
