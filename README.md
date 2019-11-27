@@ -38,3 +38,4 @@
 
 #### Unsolved Problems
 > Weird bug when we remove a saved drink. Initially it is removed from the saved drinks page but if you click back to the saved drinks after going to another partial a new item is there at the end of the array. it is only fully removed when we log out. 
+> Fix the countdown timer displaying -1.
