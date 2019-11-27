@@ -1,5 +1,3 @@
-<!-- User Drinks -->
-<h4 ng-if="ctrl.userSavedDrinks === true && ctrl.loggedInUser !== false">Your Saved Drinks</h4><br>
 <!-- Saved Drink List -->
 <div class="saved" ng-if="ctrl.userSavedDrinks === true" class="yourDrinks">
   <div class="listedSavedDrink" ng-repeat="drink in ctrl.loggedInUser.savedDrinks">
