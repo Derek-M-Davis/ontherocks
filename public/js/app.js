@@ -7,7 +7,7 @@ app.controller('MainController', ['$http', function($http){
     this.showRum = null;
     this.showGin = null;
     this.showVodka = null;
-    
+
     this.showJeopardy = false;
     this.modal = false // Toggle Modal
     this.signUpModal = false // Toggle Sign Up Modal
@@ -412,7 +412,7 @@ app.controller('MainController', ['$http', function($http){
   })
 
 
-}]) 
+}])
 
 // JEOPARDY CONTROLLER
 app.controller('JeopardyController',['$http', function($http){
@@ -420,16 +420,10 @@ app.controller('JeopardyController',['$http', function($http){
     this.question = '';
     this.answer = '';
     this.show = true
-    this.score = 0
-    this.points = 0
 
 // CLICK FOR ANSWER
     this.toggleAnswer = () => {
         this.show = !this.show
-    }
-// CLICK FOR CORRECT ANSWER 
-    this.toggleIncrease = (points) => {
-        this.score += points
     }
 
     // GET RANDOM QUESTION, POINT VALUE AND ANSWER
@@ -439,7 +433,6 @@ app.controller('JeopardyController',['$http', function($http){
             url: 'http://jservice.io/api/random'
         }). then (response => {
             this.data = response.data
-            console.log(response.data)
             this.question = this.data[0].question
             this.answer = this.data[0].answer
             this.points = this.data[0].value
@@ -448,18 +441,16 @@ app.controller('JeopardyController',['$http', function($http){
         }).catch ( err => console.error('catch: ', err))
         this.show = false
     }
-    
-    // this.number = 0;
-    
+
     this.count = (number)=> {setInterval(()=>{
-    if (number >= 0) {
-       number--
+      if (number > 0) {
+        number--
         document.getElementById("seconds").innerHTML=number
-    }if (number == 0) {
-        alert('Times Up!')
-        return
-    }
-    
+      } if (number == 0) {
+          alert('Times Up!')
+          number--
+          return
+      }
     }, 1000) }
 }])
 // END
