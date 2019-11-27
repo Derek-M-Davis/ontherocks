@@ -8,12 +8,12 @@
 
 #### Technologies Used
 
--MVC Structure
--MEAN Stack(MongoDB, Express.js, Angular.js, Node.js)  
--ThecocktailDB (https://www.thecocktaildb.com/api.php)
--Jeopardy Api (http://jservice.io/)
--CSS - Bootstrap
--Heroku Hosting application and CLI
+-MVC Structure  
+-MEAN Stack(MongoDB, Express.js, Angular.js, Node.js)     
+-ThecocktailDB (https://www.thecocktaildb.com/api.php)  
+-Jeopardy Api (http://jservice.io/)  
+-CSS - Bootstrap  
+-Heroku Hosting application and CLI  
 
 #### Approach Taken
 >Primary goal was to make a robust interface that is intuative to make the decision process as quick as possible weither you are ordering out or looking for ideas to make at home. Seeding the data with our ajax calls then designing around partials to make the webpage clean and distraction free. 
