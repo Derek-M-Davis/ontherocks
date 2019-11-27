@@ -388,6 +388,8 @@ app.controller('MainController', ['$http', function($http){
       this.showRum = null;
       this.showGin = null;
       this.showVodka = null;
+      this.userSavedDrinks = false;
+      this.showJeopardy = false
    }
 
    // Update Session Cookie FUNCTION
