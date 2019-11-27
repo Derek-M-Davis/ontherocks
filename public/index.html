@@ -12,7 +12,11 @@
         </div>
         <div class="hero-image">
             <div class="hero-text">
-                <h1 id="heroTitle">OnTheRocks</h1>
+                <h1 ng-if="ctrl.userSavedDrinks === true && ctrl.loggedInUser !== false" id="heroTitle">Your Saved Drinks</h1>
+                
+                <h1 ng-if="ctrl.userSavedDrinks === false"id="heroTitle">OnTheRocks</h1>
+               
+                <h1 ng-if="ctrl.toggleJeopardy !== false &&ctrl.userSavedDrinks !== false && ctrl.userSavedDrinks !== true"id="heroTitle">Jeopardy</h1>
             </div>
         </div>
         <div class="container-fluid mainDiv">
@@ -25,3 +29,5 @@
         </div>
     </body>
 </html>
+
+ctrl.userSavedDrinks === true && ctrl.loggedInUser !== false">Your Saved Drinks
