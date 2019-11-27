@@ -6,24 +6,26 @@
         <script src="js/app.js" charset="utf-8"></script>
         <link rel="stylesheet" href="css/app.css">
 </head>
-<body ng-controller="MainController as ctrl">
-    <div ng-include="'partials/navigation.html'">
-
-    </div>
-    <div class="hero-image">
-        <div class="hero-text">
-            <h1>onTheRocksApp</h1>    
-        </div>   
-    </div>
-    <h3>Welcome {{ctrl.loggedInUser.username}}</h3>
-    <div ng-include="'partials/signin.html'">
-
-    </div>
-    <div>
-        <div ng-include="'partials/drinklist.html'">
+    <body ng-controller="MainController as ctrl">
+        <div ng-include="'partials/navigation.html'">
 
         </div>
-    </div>
-    
-</body>
+        <div class="hero-image">
+            <div class="hero-text">
+                <h1 ng-if="ctrl.userSavedDrinks === true && ctrl.loggedInUser !== false" id="heroTitle">Your Saved Drinks</h1>
+                
+                <h1 ng-if="ctrl.userSavedDrinks === false"id="heroTitle">OnTheRocks</h1>
+               
+                <h1 ng-if="ctrl.toggleJeopardy !== false &&ctrl.userSavedDrinks !== false && ctrl.userSavedDrinks !== true"id="heroTitle">Jeopardy</h1>
+            </div>
+        </div>
+        <div class="container-fluid mainDiv">
+            <div ng-include="'partials/signin.html'">
+            </div>
+            <div ng-include="'partials/drinklist.html'">
+            </div>
+            <div ng-include="'partials/jeopardy.html'">
+            </div>
+        </div>
+    </body>
 </html>
