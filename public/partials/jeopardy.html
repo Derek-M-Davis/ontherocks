@@ -1,10 +1,11 @@
 <div class="jeopardy" ng-if="ctrl.showJeopardy">
     <div ng-controller="JeopardyController as ctrl">
         <h1 class="jTitle">Welcome to Jeopardy!</h1>
-        <p class="jDirections">Basic paramaters for Drinking Jeopardy: Person answering the question has 15 seconds to answer the question. If answer is correct: give a drink. Answer inccorrectly you take a drink. Pass to the next victum. </p>
+        <p class="jDirections">Basic paramaters for Drinking Jeopardy: Person answering the question has 15 seconds to answer the question. If answer is correct: give a drink. Answer incorrectly and you're the one drinking. Then pass to the next victim. </p>
         <div>
-            <span id="seconds">Time Left: {{number}}</span><br><br>
-            <button class="btn btn-outline-light btn-md" ng-click="ctrl.randomQuestion(); ctrl.count(15) ">Next Question</button> <br><br>
+            <h4>Time Left: <span id="seconds">15{{number}}</span></h4><br>
+            <button class="btn btn-outline-light btn-md" ng-click="ctrl.randomQuestion()">Next Question</button>
+            <button class="btn btn-outline-light btn-md" ng-click="ctrl.count(15)">Go!</button><br><br>
             <h3> Question: {{ctrl.question}}</h3><br>
         </div>
         <!-- toggle to show answer after question is generated -->
