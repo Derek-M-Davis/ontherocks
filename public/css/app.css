@@ -262,3 +262,11 @@ h4 {
   justify-content: space-around;
   flex-wrap: wrap;
 }
+
+.jeopardy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: whitesmoke;
+  text-align: center;
+}

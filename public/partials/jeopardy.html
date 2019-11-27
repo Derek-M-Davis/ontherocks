@@ -1,22 +1,16 @@
-<div ng-if="ctrl.showJeopardy">
+<div class="jeopardy" ng-if="ctrl.showJeopardy">
     <div ng-controller="JeopardyController as ctrl">
-        <h1>Welcome to Jeopardy!</h1>
-        <!-- Score -->
-        <h2>Score: {{ctrl.score}}</h2>
-        <!-- buttons for answer wrong, right and reset -->
-        <button ng-click="ctrl.toggleDecrease(ctrl.points)">Question Wrong</button>
-        <button ng-click="ctrl.toggleIncrease(ctrl.points)">Question Right</button>
-        <button ng-click="ctrl.reset()">Reset</button><br>
-        <!-- button to generate and show random question -->
+        <h1 class="jTitle">Welcome to Jeopardy!</h1>
+        <p class="jDirections">Basic paramaters for Drinking Jeopardy: Person answering the question has 15 seconds to answer the question. If answer is correct: give a drink. Answer inccorrectly you take a drink. Pass to the next victum. </p>
         <div>
-            <button ng-click="ctrl.randomQuestion()">Next Question</button>
-            <h2> Question: {{ctrl.question}}</h2>
-            <h2> Points: {{ctrl.points}}</h2>
+            <span id="seconds">Time Left: {{number}}</span><br><br>
+            <button class="btn btn-outline-light btn-md" ng-click="ctrl.randomQuestion(); ctrl.count(15) ">Next Question</button> <br><br>
+            <h3> Question: {{ctrl.question}}</h3><br>
         </div>
         <!-- toggle to show answer after question is generated -->
         <div>
-            <button ng-click="ctrl.toggleAnswer()">Answer</button>
-            <h3 ng-show='ctrl.show'>{{ctrl.answer}}</h3>
+            <button class="btn btn-outline-light btn-md" ng-click="ctrl.toggleAnswer()">Answer</button><br><br>
+            <h3 ng-show='ctrl.show'>{{ctrl.answer}}</h3><br>
         </div>
     </div>
 </div>

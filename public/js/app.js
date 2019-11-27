@@ -448,13 +448,18 @@ app.controller('JeopardyController',['$http', function($http){
         }).catch ( err => console.error('catch: ', err))
         this.show = false
     }
-    // CLICK FOR WRONG ANSWER
-    this.toggleDecrease = (points) => {
-        this.score -= points
+    
+    // this.number = 0;
+    
+    this.count = (number)=> {setInterval(()=>{
+    if (number >= 0) {
+       number--
+        document.getElementById("seconds").innerHTML=number
+    }if (number == 0) {
+        alert('Times Up!')
+        return
     }
-    // CLICK FOR SCORE RESET
-    this.reset = () => {
-        this.score = 0
-    }
+    
+    }, 1000) }
 }])
 // END
