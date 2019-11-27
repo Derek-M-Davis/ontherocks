@@ -1,7 +1,7 @@
 # ontherocks
 
 <!-- link to hosted app -->
-#[Ontherocks App](https://ontherocks.herokuapp.com/)
+#[Ontherocks App](http://ontherocks.herokuapp.com/)
 
 #### Original Goal:
 > Having an website that is usable on mobile to help those decesion shy people with narrowing their adult beverage choices. After choosing your beverage a seperate tab of news stories, talking point while out with friends, coworkers and strangers to avoid akward silence. If you actually like the people around you and trust them not to drop your phone without a case, a game revolving around the jeopardy api we worked with earlier would be an option for additional screen time without sacrificing the inclusion of people around you.
